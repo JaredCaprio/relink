@@ -1,0 +1,13 @@
+.greeting {
+  font-family: inherit;
+  justify-self: center;
+  text-align: center;
+  & h4 {
+    font-weight: 100;
+    font-size: calc(0.5rem + 1vw);
+  }
+  & h1 {
+    font-weight: 400;
+    font-size: calc(1.5rem + 1.3vw);
+  }
+}

@@ -1,0 +1,83 @@
+@use "../abstracts/" as vars;
+
+.hero {
+  background-image: url("../assets/shanghai.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: calc(350px - 10vw);
+
+  &__call-to-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 660px;
+    min-height: 86vh;
+    max-width: 1250px;
+    margin: 3em auto 0 auto;
+    padding: 3em 3em 0 3em;
+    color: vars.$primaryText;
+  }
+  &__call-to-action-heading {
+    font-size: vars.$headingLrg;
+    font-weight: 400;
+  }
+  &__call-to-action-subtext {
+    font-weight: 100;
+    font-size: 1.5rem;
+  }
+  &__hero-img {
+    min-width: 100vw;
+  }
+}
+
+.features {
+  background-color: black;
+  color: white;
+  padding: 2em 3em;
+  &__heading::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 70px;
+    margin-top: 0.25em;
+    background-color: #ab0000;
+    border-radius: vars.$borderRadiusLight;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .features {
+    &__container {
+      display: flex;
+      justify-content: space-around;
+      max-width: vars.$maxWidthDesktop;
+
+      margin: 5em auto;
+    }
+  }
+
+  .info-block {
+    max-width: 450px;
+    &:not(:last-child) {
+      margin-right: 3em;
+    }
+  }
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  background-color: vars.$bsMain;
+  padding: 2em 3em;
+  margin: 2em 0;
+  border-radius: vars.$borderRadiusMed;
+  box-shadow: vars.$bxShdwDefault;
+  &__heading {
+    font-size: vars.$headingSml;
+  }
+  &__text {
+    font-weight: 100;
+  }
+}

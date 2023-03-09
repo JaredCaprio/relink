@@ -1,0 +1,23 @@
+//Breakpoints
+$BPMobile: 320px;
+$BPtablet: 768px;
+$BPDesktop: 1024px;
+
+//font sizes
+$headingLrg: calc(2rem + 1.25vw);
+$headingMed: calc(1.25rem + 1.2vw);
+$headingSml: calc(1rem + 1.1vw);
+
+//border sizes
+// border radius
+$borderRadiusLight: 5px;
+$borderRadiusMed: 12px;
+$borderRadiusHeavy: 18px;
+$borderRadiusRound: 50%;
+
+//box shadow
+$bxShdwDefault: 10px 10px 5px 1px #1f232793;
+
+//max-width
+//desktop
+$maxWidthDesktop: 1440px;

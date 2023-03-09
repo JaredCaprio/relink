@@ -1,0 +1,31 @@
+@use "../abstracts/mixins" as mx;
+@use "../abstracts/sizes" as sz;
+@use "../abstracts/colors" as clr;
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 9rem;
+  padding: 1em 2.5em;
+  &__profile-icon img {
+    border-radius: 50%;
+    max-width: 4.5em;
+  }
+  &__curr-page {
+    font-weight: 100;
+    font-size: 1.35rem;
+  }
+  &__profile {
+    @include mx.flex-center-row;
+    justify-content: center;
+    gap: 2em;
+  }
+  &__profile i {
+    margin: 0;
+    font-size: 1rem;
+    background-color: clr.$accentClrPrime;
+    padding: 0.75em;
+    border-radius: sz.$borderRadiusRound;
+  }
+}

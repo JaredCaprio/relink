@@ -1,0 +1,32 @@
+@use "../abstracts/" as clr;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+a,
+a:visited,
+a:active,
+a:focus {
+  text-decoration: none;
+  color: clr.$links;
+}
+
+li {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+i {
+  margin-bottom: 1em;
+  font-size: 2rem;
+}

@@ -1,0 +1,11 @@
+@use "../abstracts/mixins" as mx;
+@use "../abstracts/sizes" as sz;
+@use "../abstracts/colors" as clr;
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 200px auto;
+  & > :not(:first-child) {
+    grid-column-start: 2;
+  }
+}

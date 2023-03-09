@@ -1,0 +1,27 @@
+@use "../abstracts/colors" as clr;
+@use "../abstracts/mixins" as mx;
+@use "../abstracts/sizes" as sz;
+
+.login {
+  &__container > * {
+    margin-bottom: 1.5em;
+  }
+  @include mx.flex-center-col;
+  color: white;
+  justify-content: flex-start;
+  padding: 10em 0;
+  min-height: 100vh;
+  &__container {
+    @include mx.flex-center-col;
+    background-color: clr.$transLight;
+    border-radius: sz.$borderRadiusHeavy;
+    padding: 5em 0;
+    max-width: 350px;
+  }
+  &__subtext {
+    font-weight: 100;
+  }
+  &__logo {
+    max-width: 70%;
+  }
+}

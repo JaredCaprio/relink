@@ -1,0 +1,28 @@
+@use "../abstracts/" as vars;
+
+.btn {
+  border: 3px solid vars.$accentClrPrime;
+  border-radius: vars.$borderRadiusLight;
+  background-color: vars.$accentClrLight;
+  color: vars.$bsMain;
+  transition: 200ms all ease-in-out;
+  padding: 0.25em 1em;
+  cursor: pointer;
+  &__hallow {
+    @extend .btn;
+    background: transparent;
+  }
+  &__google {
+    @extend .btn;
+    @include vars.flex-center-row;
+    justify-content: space-between;
+    min-width: 220px;
+    & i {
+      margin: 0;
+    }
+  }
+
+  &:hover {
+    background-color: vars.$accentClrPrime;
+  }
+}

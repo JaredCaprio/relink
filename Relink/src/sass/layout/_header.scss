@@ -1,0 +1,98 @@
+@use "../abstracts/" as vars;
+
+//Mobile View
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 1em;
+  &__burger-menu {
+    position: fixed;
+    right: 30px;
+    top: 63px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  &__burger-menu-line {
+    height: 4px;
+    width: 35px;
+    margin: 0.25em 0;
+    border-radius: 5px;
+    background-color: vars.$primaryText;
+  }
+  &__nav-list {
+    display: none;
+  }
+  &__logo {
+    width: 15%;
+    min-width: 150px;
+  }
+}
+
+.mobile-nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  min-width: 100px;
+  width: 100vw;
+  height: 30%;
+  background-color: #000000df;
+  transition: all 200ms ease-in;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    padding-left: 2em;
+  }
+  &__list-item {
+    position: relative;
+    margin: 1em 0;
+  }
+  &__list-item::after {
+    display: block;
+    position: absolute;
+    border-radius: vars.$borderRadiusMed;
+    content: "";
+    width: 0%;
+    height: 2px;
+    transition: 150ms all ease-in-out;
+    background-color: vars.$accentClrSec;
+  }
+  &__list-item:hover::after {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  //Desktop view
+  .header {
+    font-size: 1.2rem;
+    max-width: 1440px;
+    margin: 0 auto;
+    justify-content: space-between;
+    &__nav-list {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 75%;
+      height: 10vh;
+      max-width: 750px;
+      padding: 2em 0;
+    }
+
+    &__nav-list-item {
+      list-style-type: none;
+    }
+
+    &__nav-list-item--border {
+      padding: 0.25em 1em;
+      border: 3px solid #376996;
+      border-radius: vars.$borderRadiusMed;
+    }
+    &__burger-menu-line {
+      display: none;
+    }
+  }
+}
