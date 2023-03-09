@@ -1,11 +1,11 @@
-import React, { useContext, useState, useEffect } from "react";
-
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { userDataContext } from "./auth/UserContext";
+import { useAuth } from "./auth/UserContext";
 
 export default function Greeting() {
   const [userLocale, setUserLocale] = useState();
-  const userData = useContext(userDataContext);
+  const userData = useAuth();
+
   useEffect(() => {
     axios
       .get(`https://ipinfo.io/json?token=${import.meta.env.VITE_IPINFO_KEY}`)

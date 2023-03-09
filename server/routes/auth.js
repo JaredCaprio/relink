@@ -40,7 +40,7 @@ router.get("/api/user", async (req, res) => {
     console.log(req.user);
     res.json(req.user);
   } else {
-    res.json("fail");
+    res.json(false);
   }
 });
 

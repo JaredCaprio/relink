@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { userDataContext } from "../auth/UserContext";
+import { useContext } from "react";
 export default function Header() {
+  const user = useContext(userDataContext);
   const [showNav, setShowNav] = useState(false);
 
   const toggleNav = () => {
@@ -15,6 +17,7 @@ export default function Header() {
         src="src\assets\relink-logo-light.svg"
         alt="relink logo"
       />
+
       <ul className="header__nav-list">
         <li className="header__nav-list-item">
           <a href="#home">Home</a>
@@ -23,7 +26,11 @@ export default function Header() {
           <a href="#features">Features</a>
         </li>
         <li className="header__nav-list-item header__nav-list-item btn__hallow">
-          <Link to="/login">Login</Link>
+          {user ? (
+            <Link to="/home">Dashboard</Link>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
         </li>
       </ul>
       <div onClick={() => toggleNav()} className="header__burger-menu">

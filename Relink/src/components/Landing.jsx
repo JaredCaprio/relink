@@ -1,6 +1,8 @@
 import Header from "./headers/Header";
 import { Link } from "react-router-dom";
+import { useAuth } from "./auth/UserContext";
 export default function Landing() {
+  const user = useAuth();
   return (
     <main>
       <Header />
@@ -14,7 +16,11 @@ export default function Landing() {
             vocabulary with ease.
           </p>
           <div className="btn">
-            <Link to="/login">Get Started</Link>
+            {user ? (
+              <Link to="/home">Get Started</Link>
+            ) : (
+              <Link to="/login">Get Started</Link>
+            )}
           </div>
         </div>
       </section>

@@ -1,19 +1,18 @@
-import { useContext } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import { userDataContext } from "../auth/UserContext";
+import { useAuth } from "../auth/UserContext";
 
 export default function Homeheader({ headerTitle }) {
-  const userData = useContext(userDataContext);
+  const userData = useAuth();
   const navigate = useNavigate();
 
-  const logOut = () => {
+  const logout = () => {
     fetch("http://localhost:8080/auth/logout", {
       credentials: "include",
     })
       .then((res) => res.json())
       .then((data) => {
         if (data) {
-          navigate("/login");
+          navigate("/");
         }
       })
       .catch((err) => console.log(err));
@@ -29,7 +28,7 @@ export default function Homeheader({ headerTitle }) {
         <div className="home-header__profile-icon">
           <img src={userData?.image} alt="" referrerPolicy="no-referrer" />
         </div>
-        <div onClick={() => logOut()} className="btn">
+        <div onClick={() => logout()} className="btn">
           Logout
         </div>
       </div>
