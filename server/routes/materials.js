@@ -12,8 +12,10 @@ router.post("/add", materialsController.addMaterial);
 
 //@desc update existing materials
 //@route PUT /materials/update/:id
-router.put("/:id", materialsController.updateMaterial);
+/* router.put("/:id", materialsController.updateMaterial); */
 
 //@desc delete existing materials
 //@route DELETE /materials/:id
-router.delete("/:id", materialsController.deleteMaterial);
+/* router.delete("/:id", materialsController.deleteMaterial);
+ */
+module.exports = router;

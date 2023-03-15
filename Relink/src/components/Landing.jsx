@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { useAuth } from "./auth/UserContext";
 export default function Landing() {
   const user = useAuth();
+
   return (
-    <main>
+    <div>
       <Header />
       <section className="hero" id="home">
         <div className="hero__call-to-action">
@@ -52,6 +53,6 @@ export default function Landing() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

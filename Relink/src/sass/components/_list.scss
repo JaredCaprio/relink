@@ -2,39 +2,110 @@
 @use "../abstracts/sizes" as sz;
 @use "../abstracts/mixins" as mx;
 
+//Mobile View
+@media screen and (max-width: sz.$BPtablet) {
+  .list {
+    &__item {
+      &-def::before {
+        content: "Definition";
+        color: clr.$transLight;
+        display: block;
+        padding: 0.25em 0;
+        font-weight: 600;
+      }
+      &-hsk::before {
+        content: "HSK";
+        color: clr.$transLight;
+        display: block;
+        padding: 0.25em 0;
+        font-weight: 600;
+      }
+      &-added::before {
+        content: "Added";
+        color: clr.$transLight;
+        display: block;
+        padding: 0.25em 0;
+        font-weight: 600;
+      }
+      &-type::before {
+        content: "Type";
+        color: clr.$transLight;
+        display: block;
+        padding: 0.25em 0;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
 .list {
-  padding: 1em 2.5em;
-  margin: 0.5em calc(1em + 2.5vw);
   background-color: clr.$bsLight;
   border: 3px solid clr.$borderClrDefault;
   border-radius: sz.$borderRadiusHeavy;
-
+  text-align: center;
+  margin: 0em;
   &__ul {
-    display: flex;
+    display: none;
     justify-content: space-between;
-    padding: 1em 2.5em;
+    padding: 0.1em 0.5em;
     margin: 0.5em;
   }
   &__item {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
     justify-content: space-between;
-    padding: 0.5em 2.5em;
-    margin: 0.5em;
+    padding: 0.5em 0.75em;
+    margin: 0.25em;
+    text-align: left;
     background-color: clr.$primaryText;
     color: black;
     border: 1px solid black;
     border-radius: sz.$borderRadiusHeavy;
-    text-align: center;
-    & > * {
-      max-width: 10em;
+
+    &-title {
+      font-size: calc(1.25rem + 2vw);
     }
     &:hover {
       transition: all 200ms ease-in-out;
       box-shadow: 2px 2px 10px black;
     }
-    &-zh {
-      font-size: 1.5rem;
+  }
+}
+
+//Tablet View
+/* @media screen and (min-width: sz.$BP) */
+
+//Tablet View
+@media screen and (min-width: sz.$BPtablet) {
+  .list {
+    padding: 1em 1.5em;
+    margin: 0;
+    margin-bottom: 3em;
+    &__ul {
+      display: flex;
+      align-items: center;
+      &-col-label {
+        flex-basis: 200px;
+      }
     }
+
+    &__item {
+      margin: 1em 0;
+      flex-direction: row;
+      align-items: center;
+      flex-grow: 1;
+      text-align: center;
+      &-title {
+        font-size: sz.$headingSml;
+      }
+      & > * {
+        flex-basis: 200px;
+      }
+    }
+
+    /*  & > * {
+      max-width: 10em;
+    } */
   }
 }

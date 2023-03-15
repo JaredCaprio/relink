@@ -1,3 +1,7 @@
 export default function Label({ name }) {
-  return <span className="label">{name}</span>;
+  return (
+    <div className="label__container">
+      <span className="label">{name}</span>
+    </div>
+  );
 }

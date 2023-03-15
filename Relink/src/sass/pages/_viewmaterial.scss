@@ -1,0 +1,9 @@
+@use "../abstracts/colors" as clr;
+@use "../abstracts/sizes" as sz;
+@use "../abstracts/mixins" as mx;
+
+.material-body {
+  border-left: 5px solid clr.$borderClrDefault;
+  padding-left: 0.5em;
+  font-size: 1.4rem;
+}

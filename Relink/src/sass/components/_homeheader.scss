@@ -7,7 +7,7 @@
   justify-content: space-between;
   align-items: center;
   max-height: 9rem;
-  padding: 1em 2.5em;
+  padding: 1em 1em;
   &__profile-icon img {
     border-radius: 50%;
     max-width: 4.5em;
@@ -28,4 +28,65 @@
     padding: 0.75em;
     border-radius: sz.$borderRadiusRound;
   }
+  &__logout-btn,
+  &__profile i {
+    display: none;
+  }
+  &__profile {
+    display: flex;
+  }
+}
+
+.mobile-home-header {
+  position: absolute;
+  right: 1em;
+  background-color: clr.$bsLight;
+  padding: 1em 2em;
+  border-radius: sz.$borderRadiusMed;
+  border: 0.5px solid clr.$transMain;
+  transition: all 150ms ease-in-out;
+  transform: translateX(0);
+
+  &::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 17px solid clr.$bsLight;
+    top: -15px;
+    right: 30px;
+    position: absolute;
+    z-index: 2;
+  }
+  &__ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  &__ul i {
+    margin: 0;
+    margin-right: 0.55em;
+  }
+  &__li {
+    padding: 1em;
+    cursor: pointer;
+  }
+}
+
+//Tablet
+@media screen and (min-width: sz.$BPtablet) {
+  .home-header {
+    display: flex;
+    &__logout-btn,
+    &__profile,
+    &__profile i {
+      display: flex;
+    }
+  }
+}
+
+//Desktop View
+@media screen and (min-width: sz.$BPDesktop) {
 }

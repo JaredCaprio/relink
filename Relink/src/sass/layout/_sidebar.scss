@@ -1,9 +1,13 @@
 @use "../abstracts/colors" as clr;
 @use "../abstracts/mixins" as mx;
+@use "../abstracts/sizes" as sz;
+
+//Mobile View
 .sidebar {
   background-color: clr.$bsDark;
   position: fixed;
   height: 100vh;
+  width: 80px;
   &__nav-list {
     @include mx.flex-center-col;
     align-items: flex-start;
@@ -19,6 +23,9 @@
     gap: 2em;
     justify-content: flex-start;
   }
+  &__nav-list-item-title {
+    display: none;
+  }
   &__nav-list-item i {
     margin-bottom: 0;
   }
@@ -26,5 +33,15 @@
     max-width: 199px;
     padding: 1em;
     margin-bottom: 3em;
+  }
+}
+
+//Desktop View
+@media screen and (min-width: sz.$BPDesktop) {
+  .sidebar {
+    width: 200px;
+    &__nav-list-item-title {
+      display: block;
+    }
   }
 }

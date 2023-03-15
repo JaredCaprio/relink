@@ -36,6 +36,7 @@
   background-color: black;
   color: white;
   padding: 2em 3em;
+  min-height: 110vh;
   &__heading::after {
     content: "";
     display: block;
@@ -47,13 +48,12 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: vars.$BPtablet) {
   .features {
     &__container {
       display: flex;
       justify-content: space-around;
       max-width: vars.$maxWidthDesktop;
-
       margin: 5em auto;
     }
   }
@@ -62,6 +62,12 @@
     max-width: 450px;
     &:not(:last-child) {
       margin-right: 3em;
+    }
+    &:nth-child(2) {
+      transform: translateY(75px);
+    }
+    &:nth-child(3) {
+      transform: translateY(150px);
     }
   }
 }

@@ -4,31 +4,34 @@ export default function Sidebar() {
   return (
     <aside className="sidebar">
       <Link to="/">
-        <img
-          className="sidebar__logo logo"
-          src="src\assets\relink-logo-light.svg"
-          alt="relink logo"
-        />
+        <picture>
+          <source media="(max-width: 1024px)" srcSet="src/assets/re.svg" />
+          <img
+            className="sidebar__logo logo"
+            src="src/assets/relink-logo-light.svg"
+            alt="relink logo"
+          />
+        </picture>
       </Link>
       <ul className="sidebar__nav-list">
         <NavLink className="sidebar__nav-list-item" to="/home">
-          <i className="fa-solid fa-house"></i>
-          Home
+          <i className="fa-solid fa-house" title="Home"></i>
+          <p className="sidebar__nav-list-item-title">Home</p>
         </NavLink>
         <NavLink className="sidebar__nav-list-item" to="/wordlist">
-          <i className="fa-regular fa-rectangle-list"></i>
+          <i className="fa-regular fa-rectangle-list" title="Word List"></i>
           <p className="sidebar__nav-list-item-title">Word List</p>
         </NavLink>
-        <li className="sidebar__nav-list-item">
-          <i className="fa-solid fa-book"></i>
+        <NavLink className="sidebar__nav-list-item" to="/readinglist">
+          <i className="fa-solid fa-book" title="Reading List"></i>
           <p className="sidebar__nav-list-item-title">Reading List</p>
-        </li>
+        </NavLink>
         <li className="sidebar__nav-list-item">
-          <i className="fa-solid fa-signal"></i>
+          <i className="fa-solid fa-signal" title="Statistics"></i>
           <p className="sidebar__nav-list-item-title">Statistics</p>
         </li>
         <li className="sidebar__nav-list-item">
-          <i className="fa-solid fa-user"></i>
+          <i className="fa-solid fa-user" title="Account"></i>
           <p className="sidebar__nav-list-item-title">Account</p>
         </li>
       </ul>

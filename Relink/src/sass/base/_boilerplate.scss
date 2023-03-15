@@ -17,12 +17,22 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Roboto", sans-serif;
+
   background-color: clr.$bsMain;
   display: flex;
   flex-direction: column;
   color: clr.$primaryText;
 }
 
+input,
+textarea {
+  width: 100%;
+  display: block;
+}
+
+hr {
+  width: 100%;
+}
 img {
   display: block;
 }

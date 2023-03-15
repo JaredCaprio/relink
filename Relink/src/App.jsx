@@ -16,6 +16,12 @@ import WordList from "./components/pages/WordList";
 import UserContext from "./components/auth/UserContext";
 import EnsureAuth from "./components/auth/EnsureAuth";
 import EnsureGuest from "./components/auth/EnsureGuest";
+import Addmaterial from "./components/pages/Addmaterial";
+import Readinglist, { materialsLoader } from "./components/pages/ReadingList";
+import Error404 from "./components/error/Error404";
+import Error500 from "./components/error/Error500";
+import Viewmaterial from "./components/pages/Viewmaterial";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -38,6 +44,16 @@ const router = createBrowserRouter(
       >
         <Route path="home" element={<Dashboard />} exact />
         <Route path="wordlist" element={<WordList />} exact />
+        <Route path="addmaterial" element={<Addmaterial />} exact />
+        <Route
+          path="readinglist"
+          element={<Readinglist />}
+          loader={materialsLoader}
+          exact
+        />
+        <Route path="material" element={<Viewmaterial />}></Route>
+        <Route path="404" element={<Error404 />} exact></Route>
+        <Route path="505" element={<Error500 />} exact></Route>
       </Route>
     </Route>
   )

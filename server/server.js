@@ -20,7 +20,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["http://localhost:5173/", "http://localhost:5173"],
+    origin: process.env.HOST_NAME,
     credentials: true,
   })
 );
@@ -53,8 +53,8 @@ app.use(passport.session());
 app.use("/", require("./routes/index"));
 app.use("/words", require("./routes/words"));
 app.use("/auth", require("./routes/auth"));
-/*app.use("/profile", require("./routes/profile"));
-app.use("/materials", require("./routes/materials")); */
+/* app.use("/profile", require("./routes/profile")); */
+app.use("/materials", require("./routes/materials"));
 
 app.listen(PORT, () => {
   console.log(`Server running on Port ${PORT}`);

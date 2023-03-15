@@ -14,7 +14,10 @@ export default function Login() {
             Master Mandarin, one word at a time
           </span>
           <p>Welcome Back!</p>
-          <a href="http://localhost:8080/auth/google" className="btn__google">
+          <a
+            href={`${import.meta.env.VITE_HOSTNAME}/auth/google`}
+            className="btn__google"
+          >
             <i className="fab fa-google"></i>Log in With Google
           </a>
         </div>

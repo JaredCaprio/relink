@@ -12,7 +12,6 @@ module.exports = {
       path.join("./", "stanford-segmenter-2020-11-17", uniqueFileName),
       req.body.inputText
     );
-    console.log(__dirname);
     const command = `segment.bat pku ${uniqueFileName} UTF-8 0`;
 
     const child = exec(

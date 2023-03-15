@@ -2,10 +2,33 @@
 @use "../abstracts/sizes" as sz;
 @use "../abstracts/colors" as clr;
 
+//Mobile View
 .home-grid {
   display: grid;
-  grid-template-columns: 200px auto;
+  grid-template-columns: 80px auto;
   & > :not(:first-child) {
     grid-column-start: 2;
+  }
+
+  .main-content {
+    margin: 0 0.5em;
+    max-width: 1440px;
+  }
+}
+
+//Tablet View
+@media screen and (min-width: sz.$BPtablet) {
+  .home-grid {
+    & > :not(:first-child) {
+      margin: 0 5em;
+      max-width: 1440px;
+    }
+  }
+}
+
+//Desktop View
+@media screen and (min-width: sz.$BPDesktop) {
+  .home-grid {
+    grid-template-columns: 200px auto;
   }
 }

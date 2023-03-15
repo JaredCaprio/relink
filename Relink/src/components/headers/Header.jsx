@@ -47,7 +47,11 @@ export default function Header() {
             <a href="#features">Features</a>
           </li>
           <li className="mobile-nav__list-item">
-            <Link to="/login">Login</Link>
+            {user ? (
+              <Link to="/home">Dashboard</Link>
+            ) : (
+              <Link to="/login">Login</Link>
+            )}
           </li>
         </ul>
       </div>

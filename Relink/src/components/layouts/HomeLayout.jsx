@@ -5,9 +5,9 @@ export default function HomeLayout() {
   return (
     <div className="home-grid">
       <Sidebar />
-      <main>
+      <>
         <Outlet />
-      </main>
+      </>
     </div>
   );
 }

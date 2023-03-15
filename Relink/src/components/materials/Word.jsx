@@ -1,14 +1,22 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default function Word({ value1, value2, value3, value4 }) {
+export default function Word({ word, pinyin, def, hsk }) {
   return (
     <div className="list__item">
-      <div className="list__item-word">
-        <p className="list__item-zh">{value1}</p>
-        <p>{value2}</p>
+      <div className="list__item-title-container">
+        <div className="list__item-title">{word}</div>
+        <div className="list__item-pinyin ">{pinyin}</div>
       </div>
-      <div className="list__item-def">{value3}</div>
-      <div className="list__item-hsk">{value4}</div>
+      <div className="list__item-def">{def}</div>
+      <div className="list__item-hsk">{hsk}</div>
     </div>
   );
 }
+
+Word.propTypes = {
+  word: PropTypes.string.isRequired,
+  pinyin: PropTypes.string.isRequired,
+  def: PropTypes.string.isRequired,
+  hsk: PropTypes.string.isRequired,
+};
