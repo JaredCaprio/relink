@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Ellipsismenu from "../ui/Ellipsismenu";
 
 export default function Word({ word, pinyin, def, hsk }) {
   return (
@@ -10,6 +11,7 @@ export default function Word({ word, pinyin, def, hsk }) {
       </div>
       <div className="list__item-def">{def}</div>
       <div className="list__item-hsk">{hsk}</div>
+      <Ellipsismenu type="words" />
     </div>
   );
 }

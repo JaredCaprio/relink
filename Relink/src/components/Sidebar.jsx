@@ -5,10 +5,10 @@ export default function Sidebar() {
     <aside className="sidebar">
       <Link to="/">
         <picture>
-          <source media="(max-width: 1024px)" srcSet="src/assets/re.svg" />
+          <source media="(max-width: 1024px)" srcSet="../src/assets/re.svg" />
           <img
             className="sidebar__logo logo"
-            src="src/assets/relink-logo-light.svg"
+            src="../src/assets/relink-logo-light.svg"
             alt="relink logo"
           />
         </picture>

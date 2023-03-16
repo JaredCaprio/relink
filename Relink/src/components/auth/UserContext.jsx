@@ -10,7 +10,7 @@ export default function UserContext({ children }) {
   const [userData, setUserData] = useState({});
   const authUser = () => {
     useEffect(() => {
-      fetch(`${import.meta.env.VITE_HOSTNAME}/auth/api/user`, {
+      fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/auth/api/user`, {
         credentials: "include",
       })
         .then((res) => res.json())

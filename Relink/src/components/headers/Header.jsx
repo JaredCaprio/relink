@@ -1,14 +1,27 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { userDataContext } from "../auth/UserContext";
 import { useContext } from "react";
 export default function Header() {
   const user = useContext(userDataContext);
   const [showNav, setShowNav] = useState(false);
-
+  const ref = useRef();
+  console.log(ref.current);
   const toggleNav = () => {
     setShowNav(!showNav);
   };
+
+  const handleClickOutside = (event) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      setShowNav(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="header">
@@ -25,7 +38,7 @@ export default function Header() {
         <li className="header__nav-list-item">
           <a href="#features">Features</a>
         </li>
-        <li className="header__nav-list-item header__nav-list-item btn__hallow">
+        <li className="header__nav-list-item header__nav-list-item btn--hallow">
           {user ? (
             <Link to="/home">Dashboard</Link>
           ) : (
@@ -33,12 +46,16 @@ export default function Header() {
           )}
         </li>
       </ul>
-      <div onClick={() => toggleNav()} className="header__burger-menu">
+      <div
+        ref={ref}
+        onClick={() => toggleNav()}
+        className="header__burger-menu"
+      >
         <div className="header__burger-menu-line header__burger-menu-line1"></div>
         <div className="header__burger-menu-line header__burger-menu-line2"></div>
         <div className="header__burger-menu-line header__burger-menu-line3"></div>
       </div>
-      <div className={`mobile-nav ${showNav ? "" : "hidden"}`}>
+      <div ref={ref} className={`mobile-nav ${showNav ? "" : "hidden"}`}>
         <ul className="mobile-nav__list">
           <li className="mobile-nav__list-item">
             <a href="#home">Home</a>

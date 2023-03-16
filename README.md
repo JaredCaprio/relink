@@ -1,14 +1,52 @@
-# Relink
+# Welcome to Relink!
 
-### What is Relink
+Relink is an app that allows you to sign in with your Google account, import Chinese text into a reading list, and add words to a word list from the imported materials. Additionally, it lets you view statistics on how your vocabulary and reading list are growing.
+Technologies Used
 
----
+##### Relink was built using the following technologies / Libraries:
 
-Relink is chinese language learning web application that help track and improve you vocabulary. Chinese text can be imported from other sites and saved in a reading list. New words are automatically highlighted in imported materials and can be added to your word list. Statistics are available to view to track your progress in improving your vocabulary.
+    React
+    Vite
+    SCSS
+    Node.js
+    npm
+    Express
+    Mongoose
+    D3
 
-### How to run this project
+For word segmentation, the Stanford Segmenter 2020-11-17 is used, which needs to be downloaded from their website.
 
----
+Getting Started
 
-First run the install command
-`npm install`
+##### To get started with Relink, follow these steps:
+
+- Clone the repository to your local machine.
+
+- Install the dependencies by running `npm install`
+
+- Download the Stanford Segmenter 2020-11-17 from their [website](https://nlp.stanford.edu/software/segmenter.shtml).
+  and place it in the server folder.
+
+- Start the development server by running npm run dev.
+
+Navigate to http://localhost:5173 in your web browser.
+
+##### Usage
+
+To use Relink, follow these steps:
+
+- Sign in with your Google account.
+
+- Import Chinese text into your reading list.
+
+- Add words to your word list from the imported materials.
+
+- View statistics on how your vocabulary and reading list are growing.
+
+#### Contributing
+
+If you would like to contribute to Relink, feel free to submit a pull request. Please make sure to follow the existing code style and add appropriate tests.
+
+#### License
+
+Relink is licensed under the MIT License. See the LICENSE file for more information.

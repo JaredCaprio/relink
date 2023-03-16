@@ -2,12 +2,25 @@ const Materials = require("../models/Materials");
 
 module.exports = {
   getMaterials: async (req, res) => {
-    const materials = await Materials.where("user").equals(req.user._id);
-    res.json(materials);
+    try {
+      const materials = await Materials.where("user").equals(req.user._id);
+      res.json(materials);
+    } catch (error) {
+      console.error(error);
+      res.json(false);
+    }
   },
-  /*  getMaterial: async(req,res) =>{
-    const material = await Materials.where('_id').equals(req.body._id)
-  } */
+  getMaterial: async (req, res) => {
+    try {
+      const material = await Materials.findById(req.params.id).populate("user");
+
+      if (req.user.googleId === material.user.googleId) {
+        res.json(material);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  },
   addMaterial: async (req, res) => {
     console.log(req.body);
 
@@ -29,7 +42,23 @@ module.exports = {
       }
     } catch (error) {
       console.error(err);
+      ``;
       res.send(false);
+    }
+  },
+  updateMaterial: async (req, res) => {
+    try {
+      const updatedMaterial = req.body;
+      let material = await Materials.findById(req.params.id);
+
+      material = await Materials.findByIdAndUpdate(
+        req.params.id,
+        updatedMaterial,
+        { new: true, runValidators: true }
+      );
+      res.json(true);
+    } catch (error) {
+      console.error(error);
     }
   },
 };

@@ -41,7 +41,7 @@ app.use(
       mongoUrl: process.env.MONGO_URI,
       collectionName: "sessions",
     }),
-    cookie: { expires: false, sameSite: true },
+    cookie: { expires: false, sameSite: "none" },
   })
 );
 

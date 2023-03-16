@@ -15,7 +15,7 @@ export default function Login() {
           </span>
           <p>Welcome Back!</p>
           <a
-            href={`${import.meta.env.VITE_HOSTNAME}/auth/google`}
+            href={`${import.meta.env.VITE_SERVER_DOMAIN}/auth/google`}
             className="btn__google"
           >
             <i className="fab fa-google"></i>Log in With Google

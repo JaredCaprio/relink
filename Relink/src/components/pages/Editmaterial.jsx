@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Homeheader from "../headers/Homeheader";
 
 export default function Addmaterial() {
-  const [formData, setFormData] = useState({});
+  const materialData = useLoaderData();
+  const { id } = useParams();
+  const [formData, setFormData] = useState(materialData);
   const navigate = useNavigate();
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/materials/add`, {
+    fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/materials/edit/${id}`, {
       credentials: "include",
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -24,7 +24,10 @@ export default function Addmaterial() {
         } else {
         }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        navigate("/404");
+        console.error(error);
+      });
   };
 
   const handleChange = (event) => {
@@ -43,6 +46,7 @@ export default function Addmaterial() {
                 onChange={handleChange}
                 type="text"
                 name="title"
+                value={formData.title}
                 placeholder="Enter Title Here"
               />
             </div>
@@ -53,6 +57,7 @@ export default function Addmaterial() {
                 type="text"
                 name="type"
                 list="type"
+                value={formData.type}
                 placeholder="Enter Type Here"
               />
               <datalist id="type">
@@ -69,6 +74,7 @@ export default function Addmaterial() {
               name="body"
               id="body"
               placeholder="Enter Text Here"
+              defaultValue={formData.body}
             ></textarea>
           </div>
           <input type="submit" className="btn submit-btn" value="Submit" />

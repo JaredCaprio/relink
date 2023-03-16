@@ -20,8 +20,10 @@ import Addmaterial from "./components/pages/Addmaterial";
 import Readinglist, { materialsLoader } from "./components/pages/ReadingList";
 import Error404 from "./components/error/Error404";
 import Error500 from "./components/error/Error500";
-import Viewmaterial from "./components/pages/Viewmaterial";
-
+import Viewmaterial, {
+  viewMaterialsLoader,
+} from "./components/pages/Viewmaterial";
+import Editmaterial from "./components/pages/Editmaterial";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -51,7 +53,16 @@ const router = createBrowserRouter(
           loader={materialsLoader}
           exact
         />
-        <Route path="material" element={<Viewmaterial />}></Route>
+        <Route
+          path="materials/:id"
+          loader={viewMaterialsLoader}
+          element={<Viewmaterial />}
+        ></Route>
+        <Route
+          path="materials/edit/:id"
+          loader={viewMaterialsLoader}
+          element={<Editmaterial />}
+        ></Route>
         <Route path="404" element={<Error404 />} exact></Route>
         <Route path="505" element={<Error500 />} exact></Route>
       </Route>

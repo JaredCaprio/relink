@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Homeheader from "../headers/Homeheader";
 import List from "../materials/List";
 import Material from "../materials/Material";
+import Ellipsismenu from "../ui/Ellipsismenu";
 export default function Readinglist() {
   const materials = useLoaderData();
 
@@ -25,8 +26,10 @@ export default function Readinglist() {
 }
 
 export const materialsLoader = async () => {
-  const res = await fetch(`${import.meta.env.VITE_HOSTNAME}/materials`, {
+  const res = await fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/materials`, {
     credentials: "include",
+  }).catch((err) => {
+    console.log(err);
   });
   return res.json();
 };

@@ -37,7 +37,6 @@ router.get("/check", ensureAuth);
 //get current user data
 router.get("/api/user", async (req, res) => {
   if (req.user) {
-    console.log(req.user);
     res.json(req.user);
   } else {
     res.json(false);

@@ -19,7 +19,8 @@
   &__profile {
     @include mx.flex-center-row;
     justify-content: center;
-    gap: 2em;
+    gap: 0em;
+    cursor: pointer;
   }
   &__profile i {
     margin: 0;
@@ -39,6 +40,7 @@
 
 .mobile-home-header {
   position: absolute;
+  z-index: 1;
   right: 1em;
   background-color: clr.$bsLight;
   padding: 1em 2em;
@@ -65,13 +67,16 @@
     justify-content: center;
     align-items: flex-start;
   }
-  &__ul i {
-    margin: 0;
-    margin-right: 0.55em;
-  }
   &__li {
     padding: 1em;
     cursor: pointer;
+    &:hover {
+      color: clr.$accentClrLight;
+    }
+  }
+  &__ul i {
+    margin: 0;
+    margin-right: 0.55em;
   }
 }
 
@@ -83,6 +88,9 @@
     &__profile,
     &__profile i {
       display: flex;
+    }
+    &__profile {
+      gap: 2em;
     }
   }
 }
