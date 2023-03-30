@@ -3,7 +3,9 @@ const Materials = require("../models/Materials");
 module.exports = {
   getMaterials: async (req, res) => {
     try {
-      const materials = await Materials.where("user").equals(req.user._id);
+      const materials = await Materials.where("user")
+        .equals(req.user._id)
+        .sort({ createdAt: -1 });
       res.json(materials);
     } catch (error) {
       console.error(error);
@@ -18,6 +20,7 @@ module.exports = {
         res.json(material);
       }
     } catch (error) {
+      res.json(false);
       console.error(error);
     }
   },
@@ -42,7 +45,7 @@ module.exports = {
       }
     } catch (error) {
       console.error(err);
-      ``;
+
       res.send(false);
     }
   },
@@ -58,7 +61,18 @@ module.exports = {
       );
       res.json(true);
     } catch (error) {
+      res.json(false);
       console.error(error);
+    }
+  },
+  deleteMaterial: async (req, res) => {
+    try {
+      let material = await Materials.deleteOne({ _id: req.params.id });
+      console.log(material);
+      res.json(true);
+    } catch (error) {
+      console.error(err);
+      res.json(err.message);
     }
   },
 };

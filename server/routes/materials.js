@@ -20,6 +20,6 @@ router.put("/edit/:id", materialsController.updateMaterial);
 
 //@desc delete existing materials
 //@route DELETE /materials/:id
-/* router.delete("/:id", materialsController.deleteMaterial);
- */
+router.delete("/:id", materialsController.deleteMaterial);
+
 module.exports = router;

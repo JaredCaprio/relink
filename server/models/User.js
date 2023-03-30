@@ -39,7 +39,7 @@ const UserSchema = new mongoose.Schema({
       {
         chineseCharacters: { type: String, required: true },
         pinYin: { type: String, required: true },
-        hsk: { type: Number, required: true },
+        hsk: { type: Number },
         definition: { type: String, required: true },
         dateAdded: { type: Date, default: Date.now },
       },

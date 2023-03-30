@@ -4,6 +4,8 @@ const fsPromises = require("fs").promises;
 const path = require("path");
 const { exec } = require("child_process");
 const { stdout } = require("process");
+const User = require("../models/User");
+const Materials = require("../models/Materials");
 
 module.exports = {
   segmentText: async (req, res) => {
@@ -46,11 +48,17 @@ module.exports = {
       root: "./",
     });
   },
+  dashboard: async (req, res) => {
+    try {
+      const materials = await Materials.find({ user: req.user.id })
+        .limit(4)
+        .sort({ createdAt: -1 });
+      const words = await User.find({ _id: req.user.id }, { wordList: 1 });
 
-  getSuccess: (req, res) => {
-    res.sendFile("success.html", { root: "./" });
-  },
-  getVerified: (req, res) => {
-    res.sendFile("verified.html", { root: "./" });
+      res.json({ materials, words });
+    } catch (err) {
+      console.error(err);
+      res.json({ error: "Server Error" });
+    }
   },
 };

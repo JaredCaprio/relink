@@ -10,6 +10,8 @@ const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const cors = require("cors");
+const cedict = require("coupling-dict-chinese");
+const flash = require("connect-flash");
 
 //suppress mongoose deprecation warning
 mongoose.set("strictQuery", true);
@@ -25,6 +27,7 @@ app.use(
   })
 );
 
+app.use(flash());
 //database connection
 connectDB();
 
@@ -55,6 +58,7 @@ app.use("/words", require("./routes/words"));
 app.use("/auth", require("./routes/auth"));
 /* app.use("/profile", require("./routes/profile")); */
 app.use("/materials", require("./routes/materials"));
+app.use("/api", require("./routes/api"));
 
 app.listen(PORT, () => {
   console.log(`Server running on Port ${PORT}`);
