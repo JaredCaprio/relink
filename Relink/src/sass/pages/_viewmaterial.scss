@@ -7,4 +7,25 @@
   padding-left: 0.5em;
   font-size: 1.4rem;
   max-width: 1350px;
+  & .unknown-word {
+    background-color: rgba(133, 133, 25, 0.636);
+    color: #dfdfdf;
+  }
+}
+
+.tooltip {
+  position: fixed;
+  font-size: 1rem;
+  background-color: #333;
+  padding: 1.5em;
+  border-radius: sz.$borderRadiusMed;
+  opacity: 0.99;
+  max-width: calc(15rem + 5vw);
+  & i {
+    font-size: 0.9rem;
+    margin-left: 1em;
+  }
+  & li {
+    list-style-type: disc;
+  }
 }

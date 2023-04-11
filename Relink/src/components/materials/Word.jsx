@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Ellipsismenu from "../ui/Ellipsismenu";
 
-export default function Word({ word, pinyin, def, hsk }) {
+export default function Word({ word, pinyin, def, hsk, id }) {
   return (
     <div className="list__item">
       <div className="list__item-title-container">
@@ -11,7 +11,8 @@ export default function Word({ word, pinyin, def, hsk }) {
       </div>
       <div className="list__item-def">{def}</div>
       <div className="list__item-hsk">{hsk}</div>
-      <Ellipsismenu type="words" />
+
+      <Ellipsismenu type="words" redirect="wordlist" id={id} />
     </div>
   );
 }
@@ -20,5 +21,5 @@ Word.propTypes = {
   word: PropTypes.string.isRequired,
   pinyin: PropTypes.string.isRequired,
   def: PropTypes.string.isRequired,
-  hsk: PropTypes.string.isRequired,
+  hsk: PropTypes.string,
 };

@@ -5,9 +5,7 @@ import { useEffect, useRef, useState } from "react";
 export default function Homeheader({ headerTitle }) {
   const userData = useAuth();
   const navigate = useNavigate();
-
   const [showMenu, setShowMenu] = useState(false);
-
   const ref = useRef();
 
   const toggleMenu = () => {
@@ -55,6 +53,7 @@ export default function Homeheader({ headerTitle }) {
             ref={ref}
             onClick={() => toggleMenu()}
             className="home-header__profile-icon"
+            title={userData?.displayName}
           >
             <img src={userData?.image} alt="" referrerPolicy="no-referrer" />
           </div>
@@ -68,7 +67,9 @@ export default function Homeheader({ headerTitle }) {
         className={`mobile-home-header ${showMenu ? "" : "hidden"}`}
       >
         <ul className="mobile-home-header__ul">
-          <h2 className="mobile-home-header__li">{userData?.displayName}</h2>
+          <h2 className="mobile-home-header__li--inactive">
+            {userData?.displayName}
+          </h2>
           <hr />
           <Link to="/addmaterial" className="mobile-home-header__li">
             <i className="fa-solid fa-plus" title="Add Material"></i>

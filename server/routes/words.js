@@ -14,9 +14,9 @@ router.post("/add", wordsController.addword);
 //@route POST /words/define/:word
 router.get("/define/:word", wordsController.defineWord);
 
-//@desc update existing words
-//@route PUT /words/update/:id
-/* router.put("/:id", wordsController.updateword); */
+//@desc check if word exists
+//@route GET /words/check/:word
+router.put("/:word", wordsController.checkWord);
 
 //@desc delete existing words
 //@route DELETE /words/:id

@@ -1,4 +1,5 @@
 const Materials = require("../models/Materials");
+const User = require("../models/User");
 
 module.exports = {
   getMaterials: async (req, res) => {
@@ -15,7 +16,62 @@ module.exports = {
   getMaterial: async (req, res) => {
     try {
       const material = await Materials.findById(req.params.id).populate("user");
+      const materialSplitArray = material.body
+        .trim()
+        .replace(/[\r\n]/g, "")
+        .replace(/([0-9])([\u4e00-\u9fa5])/g, "$1 $2")
+        .split(" ");
 
+      console.log(materialSplitArray);
+      const foundWords = await User.aggregate([
+        {
+          $match: { "wordList.chineseCharacters": { $in: materialSplitArray } },
+        },
+        {
+          $project: {
+            _id: 0,
+            wordList: {
+              $filter: {
+                input: "$wordList",
+                as: "word",
+                cond: { $in: ["$$word.chineseCharacters", materialSplitArray] },
+              },
+            },
+          },
+        },
+      ]);
+
+      if (foundWords.length < 1) {
+        material.body = materialSplitArray
+          .map((char) => {
+            return `<span class="unknown-word">${char}</span>`;
+          })
+          .join(" ");
+        res.json(material);
+        return;
+      } else {
+        const knownWords = foundWords[0].wordList.map((word) => {
+          return word.chineseCharacters;
+        });
+
+        /*Reassigning the body of the material to an array that has 
+      span tags wrapped around words not in the word list, ignoring punctuation,
+      and joining it back together.*/
+
+        material.body = materialSplitArray
+          .map((char) => {
+            if (
+              /[\u4E00-\u9FFF\s]+/g.test(char) &&
+              !knownWords.includes(char)
+            ) {
+              return `<span class="unknown-word">${char}</span>`;
+            } else {
+              return char;
+            }
+          })
+          .join(" ");
+        //Check if logged in user is the creator of material
+      }
       if (req.user.googleId === material.user.googleId) {
         res.json(material);
       }
@@ -25,8 +81,7 @@ module.exports = {
     }
   },
   addMaterial: async (req, res) => {
-    console.log(req.body);
-
+    console.log(req.body, req.body.body);
     try {
       const findMaterial = await Materials.exists({
         title: req.body.title,
@@ -44,8 +99,7 @@ module.exports = {
         res.send(true);
       }
     } catch (error) {
-      console.error(err);
-
+      console.error(error);
       res.send(false);
     }
   },

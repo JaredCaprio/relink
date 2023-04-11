@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const cedict = require("coupling-dict-chinese");
+
 module.exports = {
   //Returns all words from logged in user sorted by date, most recent first.
   getWords: async (req, res) => {
@@ -31,7 +32,7 @@ module.exports = {
         const user = await User.findOneAndUpdate(
           userId,
           {
-            $push: { wordList: req.body, $sort: { dateAdded: -1 } },
+            $push: { wordList: req.body, $sort: { createdAt: -1 } },
           },
           { new: true }
         );
@@ -61,5 +62,12 @@ module.exports = {
     } catch (err) {
       console.error(err);
     }
+  },
+  checkWord: async (req, res) => {
+    const isWordAdded = await User.exists({
+      "wordList._id": req.params.word,
+    });
+
+    res.json(isWordAdded);
   },
 };

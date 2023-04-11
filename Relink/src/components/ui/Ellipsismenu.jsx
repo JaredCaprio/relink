@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-export default function Ellipsismenu({ type, id }) {
+export default function Ellipsismenu({ type, id, redirect }) {
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
   const ref = useRef();
@@ -27,6 +27,27 @@ export default function Ellipsismenu({ type, id }) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const handleDelete = (event) => {
+    event.preventDefault();
+    fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/${type}/${id}`, {
+      credentials: "include",
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          navigate(`/${redirect}`);
+          console.log(id);
+        } else {
+          navigate("/500");
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -53,7 +74,10 @@ export default function Ellipsismenu({ type, id }) {
             </li>
           )}
 
-          <li className="ellipsis-menu__popup-li">
+          <li
+            onClick={(event) => handleDelete(event)}
+            className="ellipsis-menu__popup-li"
+          >
             <i className="fa-solid fa-trash-can"></i>
           </li>
         </ul>

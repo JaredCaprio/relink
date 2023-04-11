@@ -6,7 +6,6 @@ export default function Header() {
   const user = useContext(userDataContext);
   const [showNav, setShowNav] = useState(false);
   const ref = useRef();
-  console.log(ref.current);
   const toggleNav = () => {
     setShowNav(!showNav);
   };

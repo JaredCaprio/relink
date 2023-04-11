@@ -41,7 +41,7 @@ const UserSchema = new mongoose.Schema({
         pinYin: { type: String, required: true },
         hsk: { type: Number },
         definition: { type: String, required: true },
-        dateAdded: { type: Date, default: Date.now },
+        createdAt: { type: Date, default: Date.now },
       },
     ],
   },

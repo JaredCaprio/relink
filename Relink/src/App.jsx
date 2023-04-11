@@ -10,9 +10,9 @@ import {
 } from "react-router-dom";
 import Landing from "./components/Landing";
 import Login from "./components/Login";
-import Dashboard from "./components/pages/Dashboard";
+import Dashboard, { DashboardLoader } from "./components/pages/Dashboard";
 import HomeLayout from "./components/Layouts/HomeLayout";
-import WordList from "./components/pages/WordList";
+import WordList, { wordListLoader } from "./components/pages/WordList";
 import UserContext from "./components/auth/UserContext";
 import EnsureAuth from "./components/auth/EnsureAuth";
 import EnsureGuest from "./components/auth/EnsureGuest";
@@ -24,6 +24,8 @@ import Viewmaterial, {
   viewMaterialsLoader,
 } from "./components/pages/Viewmaterial";
 import Editmaterial from "./components/pages/Editmaterial";
+import Statistics from "./components/pages/Statistics";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -44,8 +46,18 @@ const router = createBrowserRouter(
           </EnsureAuth>
         }
       >
-        <Route path="home" element={<Dashboard />} exact />
-        <Route path="wordlist" element={<WordList />} exact />
+        <Route
+          path="home"
+          loader={DashboardLoader}
+          element={<Dashboard />}
+          exact
+        />
+        <Route
+          path="wordlist"
+          loader={wordListLoader}
+          element={<WordList />}
+          exact
+        />
         <Route path="addmaterial" element={<Addmaterial />} exact />
         <Route
           path="readinglist"
@@ -62,6 +74,11 @@ const router = createBrowserRouter(
           path="materials/edit/:id"
           loader={viewMaterialsLoader}
           element={<Editmaterial />}
+        ></Route>
+        <Route
+          path="statistics"
+          element={<Statistics />}
+          loader={DashboardLoader}
         ></Route>
         <Route path="404" element={<Error404 />} exact></Route>
         <Route path="505" element={<Error500 />} exact></Route>

@@ -6,6 +6,7 @@
   &__container {
     width: 100%;
   }
+  position: relative;
   width: 95%;
   padding: 1em 0;
   margin: 2em auto 0.5em auto;
@@ -19,6 +20,12 @@
   &--large {
     font-size: sz.$headingLrg;
     padding: 0.1em;
+  }
+
+  &__type {
+    color: clr.$borderClrDefault;
+    font-size: 1.5rem;
+    font-weight: 400;
   }
 }
 

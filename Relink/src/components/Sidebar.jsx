@@ -26,14 +26,10 @@ export default function Sidebar() {
           <i className="fa-solid fa-book" title="Reading List"></i>
           <p className="sidebar__nav-list-item-title">Reading List</p>
         </NavLink>
-        <li className="sidebar__nav-list-item">
+        <NavLink className="sidebar__nav-list-item" to="/statistics">
           <i className="fa-solid fa-signal" title="Statistics"></i>
           <p className="sidebar__nav-list-item-title">Statistics</p>
-        </li>
-        <li className="sidebar__nav-list-item">
-          <i className="fa-solid fa-user" title="Account"></i>
-          <p className="sidebar__nav-list-item-title">Account</p>
-        </li>
+        </NavLink>
       </ul>
     </aside>
   );

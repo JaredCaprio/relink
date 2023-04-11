@@ -1,7 +1,6 @@
 # Welcome to Relink!
 
 Relink is an app that allows you to sign in with your Google account, import Chinese text into a reading list, and add words to a word list from the imported materials. Additionally, it lets you view statistics on how your vocabulary and reading list are growing.
-Technologies Used
 
 ##### Relink was built using the following technologies / Libraries:
 

@@ -8,13 +8,13 @@ const User = require("../models/User");
 const Materials = require("../models/Materials");
 
 module.exports = {
-  segmentText: async (req, res) => {
+  segmentText: async (req, res, next) => {
     const uniqueFileName = `${uuidv4()}.utf8`;
     fsPromises.writeFile(
       path.join("./", "stanford-segmenter-2020-11-17", uniqueFileName),
-      req.body.inputText
+      req.body.body
     );
-    const command = `segment.bat ctb ${uniqueFileName} UTF-8 0`;
+    const command = `segment.bat pku ${uniqueFileName} UTF-8 0`;
 
     const child = exec(
       command,
@@ -27,7 +27,8 @@ module.exports = {
         const segmentedText = stdout.trim();
         console.log(`Segmented Text ${segmentedText}`);
         console.error(`stderr: ${stderr}`);
-        res.send(segmentedText);
+        req.body.body = segmentedText;
+        return next();
       }
     );
 
@@ -42,22 +43,5 @@ module.exports = {
         console.log(`command err ${err} exit code ${code}`);
       }
     });
-  },
-  getIndex: (req, res) => {
-    res.sendFile("index.html", {
-      root: "./",
-    });
-  },
-  dashboard: async (req, res) => {
-    try {
-      const materials = await Materials.find({ user: req.user.id })
-        .limit(4)
-        .sort({ createdAt: -1 });
-      const words = await User.find({ _id: req.user.id }, { wordList: 1 });
-      res.json({ materials, words });
-    } catch (err) {
-      console.error(err);
-      res.json({ error: "Server Error" });
-    }
   },
 };

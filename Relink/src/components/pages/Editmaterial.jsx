@@ -22,6 +22,7 @@ export default function Addmaterial() {
         if (data) {
           navigate("/readinglist");
         } else {
+          navigate("500");
         }
       })
       .catch((error) => {

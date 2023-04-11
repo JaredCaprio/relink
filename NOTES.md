@@ -16,3 +16,17 @@
 - Added error pages with cute anime gif but not fully implemented yet
 - `getMaterials` endpoint working
 - staggered `info-block` on landing page
+
+## March 15th, 2023
+
+- Ellipsis menu added but only edit button functioning
+- Added the update materials route
+- Make landing page mobile nav hide when clicked away from
+
+## April 6th, 2023
+
+- Setup d3 and created line chart for known words and added materials
+
+## April 11th, 2023
+
+- Set up highlighting of unknown words on the `viewmaterials` page.
