@@ -2,12 +2,13 @@ import React, { useEffect, useState, useRef } from "react";
 import { useLoaderData, useParams, useNavigate } from "react-router-dom";
 import Homeheader from "../headers/Homeheader";
 import Tooltip from "../ui/Tooltip";
+import Ellipsismenu from "../ui/Ellipsismenu";
 
 export default function Viewmaterial() {
   const { id } = useParams();
   const material = useLoaderData();
   const navigate = useNavigate();
-
+  console.log(material);
   const [selectedRange, setSelectedRange] = useState(null);
   const [def, setDef] = useState([]);
   // Fetching defintion of selected word from API
@@ -46,7 +47,13 @@ export default function Viewmaterial() {
       <div className="label_container ">
         <div className="label label--large flex-between">
           {material.title}
+
           <span className="label__type">{material.type}</span>
+          <Ellipsismenu
+            type="materials"
+            id={material._id}
+            redirect="readinglist"
+          />
         </div>
       </div>
       <div id="material-body" className="material-body">

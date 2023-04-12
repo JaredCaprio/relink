@@ -37,13 +37,12 @@ export default function Header() {
         <li className="header__nav-list-item">
           <a href="#features">Features</a>
         </li>
-        <li className="header__nav-list-item header__nav-list-item btn--hallow">
-          {user ? (
-            <Link to="/home">Dashboard</Link>
-          ) : (
-            <Link to="/login">Login</Link>
-          )}
-        </li>
+        <Link
+          to={user ? "/home" : "/login"}
+          className="header__nav-list-item header__nav-list-item btn--hallow"
+        >
+          {user ? "Dashboard" : "Login"}
+        </Link>
       </ul>
       <div
         ref={ref}

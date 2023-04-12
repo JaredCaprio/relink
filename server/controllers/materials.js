@@ -97,6 +97,8 @@ module.exports = {
           user: req.user._id,
         });
         res.send(true);
+      } else {
+        res.send(false);
       }
     } catch (error) {
       console.error(error);
@@ -107,7 +109,7 @@ module.exports = {
     try {
       const updatedMaterial = req.body;
       let material = await Materials.findById(req.params.id);
-
+      console.log(req.body);
       material = await Materials.findByIdAndUpdate(
         req.params.id,
         updatedMaterial,

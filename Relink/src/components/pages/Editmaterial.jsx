@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Homeheader from "../headers/Homeheader";
 
-export default function Addmaterial() {
+export default function Editmaterial() {
   const materialData = useLoaderData();
+  materialData.body = materialData.body.replace(
+    /<[^>]+>|class="unknown-word"/g,
+    ""
+  );
+
   const { id } = useParams();
   const [formData, setFormData] = useState(materialData);
   const navigate = useNavigate();

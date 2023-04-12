@@ -60,6 +60,7 @@
 
   .info-block {
     max-width: 450px;
+    min-height: 400px;
     &:not(:last-child) {
       margin-right: 3em;
     }
@@ -75,6 +76,7 @@
 .info-block {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   background-color: vars.$bsMain;
   padding: 2em 3em;
   margin: 2em 0;

@@ -3,6 +3,7 @@ import Homeheader from "../headers/Homeheader";
 import Label from "../materials/Label";
 import { useLoaderData } from "react-router-dom";
 import * as d3 from "d3";
+import Emptylist from "../ui/Emptylist";
 
 export default function Statistics() {
   const userData = useLoaderData();
@@ -10,10 +11,10 @@ export default function Statistics() {
   const svgRef2 = useRef(null);
   const words = userData.words[0].wordList;
   const materials = userData.materials;
-  console.log(words, materials);
-  const [data, setData] = useState({});
 
-  const createSVGChart = (data, svgEl, type) => {
+  /*  const [data, setData] = useState({}); */
+
+  const createSVGChart = (data, svgEl, type, bgClr) => {
     //Sorting by Date
     const formattedDates = d3.rollup(
       data,
@@ -33,7 +34,6 @@ export default function Statistics() {
       accumulativeSum += d.value;
       return { date: d.date, value: accumulativeSum };
     });
-    setData(formattedData);
 
     //setting up svg
     const w = 1000;
@@ -42,8 +42,17 @@ export default function Statistics() {
       .select(svgEl.current)
       .attr("width", w)
       .attr("height", h)
-      .style("background", "#010101")
+      .style("background", bgClr)
       .style("overflow", "visible");
+    console.log(formattedData[3]);
+
+    //Total Amounts
+    svg
+      .append("text")
+      .attr("x", 10)
+      .attr("y", 50)
+      .text(`Total ${type}: ${formattedData[formattedData.length - 1].value}`)
+      .attr("fill", "white");
 
     //setup scaling
     const xScale = d3
@@ -53,16 +62,15 @@ export default function Statistics() {
     const yScale = d3
       .scaleLinear()
       .domain(d3.extent(formattedData, (d) => d.value))
-      .range([h, 0]);
+      .range([h, 10]);
 
     const generateScaledLine = d3
       .line()
       .x((d) => xScale(new Date(d.date)))
-      .y((d) => yScale(d.value))
-      .curve(d3.curveCardinal);
+      .y((d) => yScale(d.value));
 
     //set axis
-    const xAxis = d3.axisBottom(xScale).ticks(data.length);
+    const xAxis = d3.axisBottom(xScale).ticks(formattedData.length);
     const yAxis = d3.axisLeft(yScale).ticks(5);
     svg.append("g").call(xAxis).attr("transform", `translate(0, ${h})`);
     svg.append("g").call(yAxis);
@@ -88,23 +96,37 @@ export default function Statistics() {
       .append("title")
       .text((d) => `${type}: ${d.value}\nDate: ${d.date}`);
   };
-
+  console.log(userData);
   useEffect(() => {
-    createSVGChart(words, svgRef1, "Words");
-    createSVGChart(materials, svgRef2, "Materials");
+    if (
+      userData.words[0].wordList.length > 2 &&
+      userData.materials.length > 1
+    ) {
+      createSVGChart(words, svgRef1, "Words", "#261004");
+      createSVGChart(materials, svgRef2, "Materials", "#11181C");
+    }
   }, []);
 
   return (
     <main className="main-content">
       <Homeheader headerTitle="Statistics" />
       <Label name="Known Words" />
-      <div className="list" style={{ padding: "3rem" }}>
-        <svg ref={svgRef1}></svg>
-      </div>
+      {userData.words[0].wordList.length > 0 ? (
+        <div className="list" style={{ padding: "2rem 3rem" }}>
+          <svg ref={svgRef1}></svg>
+        </div>
+      ) : (
+        <Emptylist type="words" listType="Word List" />
+      )}
+
       <Label name="Materials" />
-      <div className="list">
-        <svg ref={svgRef2}></svg>
-      </div>
+      {userData.materials.length > 1 ? (
+        <div className="list">
+          <svg ref={svgRef2}></svg>
+        </div>
+      ) : (
+        <Emptylist type="Materials" listType="Reading List" />
+      )}
     </main>
   );
 }
