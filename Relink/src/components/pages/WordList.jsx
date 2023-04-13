@@ -45,9 +45,7 @@ export default function WordList() {
             ))}
         </List>
       ) : (
-        <List>
-          <Emptylist type="words" listType="word list" />
-        </List>
+        <List>No Words Found</List>
       )}
     </main>
   );

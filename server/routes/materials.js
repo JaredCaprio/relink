@@ -17,7 +17,7 @@ router.post("/add", segmentText, materialsController.addMaterial);
 
 //@desc update existing materials
 //@route PUT /materials/edit/:id
-router.put("/edit/:id", materialsController.updateMaterial);
+router.put("/edit/:id", segmentText, materialsController.updateMaterial);
 
 //@desc delete existing materials
 //@route DELETE /materials/:id

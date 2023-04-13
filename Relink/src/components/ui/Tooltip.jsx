@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 
 export default function Tooltip({
   definition,
@@ -12,6 +14,7 @@ export default function Tooltip({
   const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
   const [moddedButtonText, setModdedButtonText] = useState("Add to Word List");
   const ref = useRef();
+
   useEffect(() => {
     if (range) {
       const tooltipRect = ref.current.getBoundingClientRect();

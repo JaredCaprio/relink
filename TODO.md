@@ -9,12 +9,12 @@
 ### TODO
 
 - [ ] Fix the buggy positioning of the word def tooltips
-- [ ] search function in the word list and possibly the reading list
 
 ### In progress ...
 
 ### Done ✓
 
+- [x] search function in the word list and possibly the reading list
 - [x] make readinglist, wordlist, and home page render a message prompting the user to add materials if materials or words are not present for user in DB
 - [x] highlight known words in viewmatierals page
 - [x] add data viz with d3 for known words stats and added materials

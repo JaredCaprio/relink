@@ -48,7 +48,7 @@ export default function Dashboard() {
                 word={word.chineseCharacters}
                 pinyin={word.pinYin}
                 def={word.definition}
-                hsk="level 69"
+                added={word.createdAt}
               />
             ))
             .slice(0, 4)}
