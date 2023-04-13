@@ -8,7 +8,6 @@ export default function Viewmaterial() {
   const { id } = useParams();
   const material = useLoaderData();
   const navigate = useNavigate();
-  console.log(material);
   const [selectedRange, setSelectedRange] = useState(null);
   const [def, setDef] = useState([]);
   // Fetching defintion of selected word from API

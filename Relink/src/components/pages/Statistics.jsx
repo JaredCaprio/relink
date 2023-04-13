@@ -44,7 +44,6 @@ export default function Statistics() {
       .attr("height", h)
       .style("background", bgClr)
       .style("overflow", "visible");
-    console.log(formattedData[3]);
 
     //Total Amounts
     svg
@@ -96,7 +95,7 @@ export default function Statistics() {
       .append("title")
       .text((d) => `${type}: ${d.value}\nDate: ${d.date}`);
   };
-  console.log(userData);
+
   useEffect(() => {
     if (
       userData.words[0].wordList.length > 2 &&

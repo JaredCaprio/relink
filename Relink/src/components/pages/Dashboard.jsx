@@ -38,7 +38,7 @@ export default function Dashboard() {
       <Label name="New Words" />
 
       {wordsDashboardData.length > 0 ? (
-        <List title1="Word" title2="Definition" title3="HSK">
+        <List title1="Word" title2="Definition" title3="Added">
           {wordsDashboardData
             .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
             .map((word) => (

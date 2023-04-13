@@ -1,0 +1,22 @@
+@use "../abstracts/colors" as clr;
+@use "../abstracts/sizes" as sz;
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  background: clr.$bsLight;
+  border-radius: sz.$borderRadiusHeavy;
+  border: 3px solid clr.$borderClrDefault;
+  margin: 1em 0;
+  padding: 1em;
+  &__label {
+    opacity: 0.5;
+  }
+  &__input {
+    background: transparent;
+    color: #d9d9d9;
+    font-size: 1.2rem;
+    border: none;
+    padding: 1em;
+  }
+}

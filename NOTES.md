@@ -30,3 +30,11 @@
 ## April 11th, 2023
 
 - Set up highlighting of unknown words on the `viewmaterials` page.
+
+## April 12th, 2023
+
+- Fixed some minor bugs with updating materials and wrapping unknown words in span tags
+  - instead of using a regex to strip the html tags away before rendering, I stripped them away and set it as the initial state for the formdata
+- Turned the `li` into a `Link` for the Dashboard/Login button on the landing page so the entire area of the button is clickable
+- added ellipsis menu to the `viewmaterial` so you can get to the edit page and also delete the material you're viewing
+- added search bar on `wordList`
