@@ -1,46 +1,20 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useLoaderData, useParams, useNavigate } from "react-router-dom";
+import React from "react";
+import { useLoaderData, useParams } from "react-router-dom";
 import Homeheader from "../headers/Homeheader";
-import Tooltip from "../ui/Tooltip";
 import Ellipsismenu from "../ui/Ellipsismenu";
+import Tippytooltip from "../utils/Tippytooltip";
 
 export default function Viewmaterial() {
   const { id } = useParams();
   const material = useLoaderData();
-  const navigate = useNavigate();
-  const [selectedRange, setSelectedRange] = useState(null);
-  const [def, setDef] = useState([]);
-  // Fetching defintion of selected word from API
-  const fetchDefinition = (word) => {
-    if (!word) return;
-    fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/words/define/${word}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setDef(data);
-      });
-  };
 
   //create makeup for materialbody
   function createMarkup() {
     return { __html: material.body };
   }
 
-  //Handling change of selected on mouse up inside body div
-  const handleSelectionChange = () => {
-    const selection = window.getSelection();
-    const parentEl = selection.focusNode.parentNode.offsetParent;
-
-    if (!selection.isCollapsed && !parentEl.classList.contains("tooltip")) {
-      const range = selection.getRangeAt(0);
-      fetchDefinition(selection.toString().trim());
-      setSelectedRange(range);
-    } else {
-      setSelectedRange(null);
-    }
-  };
-
   return (
-    <main onMouseUp={handleSelectionChange} className="main-content">
+    <main className="main-content">
       <Homeheader headerTitle={null} />
 
       <div className="label_container ">
@@ -56,20 +30,11 @@ export default function Viewmaterial() {
         </div>
       </div>
       <div id="material-body" className="material-body">
-        <p dangerouslySetInnerHTML={createMarkup()}></p>
-        {def.length === 0 ? (
-          <Tooltip definition="No Word Found" range={selectedRange} />
-        ) : (
-          <Tooltip
-            simplified={def[0].simplified}
-            definition={def.map((word, i) => (
-              <li key={i}>{word.definitions.split(";").join("; ")}</li>
-            ))}
-            pronunciation={def[0].pronunciation}
-            range={selectedRange}
-            buttonText={"Add to Word List"}
-          />
-        )}
+        <p>
+          {material.body.map((word, i) => (
+            <Tippytooltip key={i} isknown={word.known} word={word.word} />
+          ))}
+        </p>
       </div>
     </main>
   );

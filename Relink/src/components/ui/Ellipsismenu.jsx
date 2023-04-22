@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-export default function Ellipsismenu({ type, id, redirect }) {
+export default function Ellipsismenu({ type, id, redirect, updateList }) {
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
   const ref = useRef();
@@ -19,6 +19,8 @@ export default function Ellipsismenu({ type, id, redirect }) {
   const handleClickOutside = (event) => {
     if (ref.current && !ref.current.contains(event.target)) {
       setShowPopup(false);
+    } else if (event === false) {
+      setShowPopup(false);
     }
   };
   useEffect(() => {
@@ -28,9 +30,9 @@ export default function Ellipsismenu({ type, id, redirect }) {
     };
   }, []);
 
-  const handleDelete = (event) => {
+  const handleDelete = async (event) => {
     event.preventDefault();
-    fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/${type}/${id}`, {
+    /*   fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/${type}/${id}`, {
       credentials: "include",
       method: "DELETE",
       headers: {
@@ -41,12 +43,37 @@ export default function Ellipsismenu({ type, id, redirect }) {
       .then((data) => {
         if (data) {
           navigate(`/${redirect}`);
+          handleClickOutside(false);
+          updateList();
           console.log(id);
         } else {
           navigate("/500");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err)); */
+
+    const res = await fetch(
+      `${import.meta.env.VITE_SERVER_DOMAIN}/${type}/${id}`,
+      {
+        credentials: "include",
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const data = await res.json();
+    console.log(data.wordList);
+    if (data.deleted) {
+      navigate(`/${redirect}`);
+      handleClickOutside(false);
+      if (redirect !== "home") {
+        updateList();
+      }
+      console.log(id);
+    } else {
+      navigate("/500");
+    }
   };
 
   return (

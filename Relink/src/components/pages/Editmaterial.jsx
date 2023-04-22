@@ -4,13 +4,13 @@ import Homeheader from "../headers/Homeheader";
 
 export default function Editmaterial() {
   const materialData = useLoaderData();
-  materialData.body = materialData.body.replace(
-    /<[^>]+>|class="unknown-word"/g,
-    ""
-  );
+  let mappedBody = materialData.body.map((word) => word.word).join("");
+
+  console.log(mappedBody);
 
   const { id } = useParams();
   const [formData, setFormData] = useState(materialData);
+  console.log(formData);
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -80,10 +80,13 @@ export default function Editmaterial() {
               name="body"
               id="body"
               placeholder="Enter Text Here"
-              defaultValue={formData.body}
+              defaultValue={mappedBody}
             ></textarea>
           </div>
-          <input type="submit" className="btn submit-btn" value="Submit" />
+          <input type="submit" className="btn large-btn" value="Submit" />
+          <button className="btn large-btn" value="Cancel">
+            Cancel
+          </button>
         </form>
       </div>
     </main>

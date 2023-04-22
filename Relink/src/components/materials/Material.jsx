@@ -9,7 +9,7 @@ export default function Material({ title, added, type, id }) {
 
   return (
     <div onClick={() => navigate(`/materials/${id}`)}>
-      <div className="list__item" id={id}>
+      <div style={{ cursor: "pointer" }} className="list__item" id={id}>
         <div className="list__item-title">{title}</div>
         <div className="list__item-added">
           {dayjs(added).format("MMMM D, YYYY h:mm A")}

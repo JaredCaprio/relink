@@ -51,7 +51,6 @@
     margin: 0.5em;
   }
   &__item {
-    cursor: pointer;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -64,7 +63,9 @@
     color: black;
     border: 1px solid black;
     border-radius: sz.$borderRadiusHeavy;
-
+    &-def {
+      max-width: 15rem;
+    }
     &-title {
       font-size: calc(1.25rem + 2vw);
     }

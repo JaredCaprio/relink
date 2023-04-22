@@ -57,8 +57,9 @@ module.exports = {
           { _id: userId },
           { $pull: { wordList: { _id: req.params.id } } }
         );
+        const updatedUser = await User.find({ _id: userId });
+        res.json({ wordList: updatedUser[0].wordList, deleted: true });
       }
-      res.json(true);
     } catch (err) {
       console.error(err);
     }

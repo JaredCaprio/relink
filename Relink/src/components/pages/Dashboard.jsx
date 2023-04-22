@@ -49,6 +49,7 @@ export default function Dashboard() {
                 pinyin={word.pinYin}
                 def={word.definition}
                 added={word.createdAt}
+                redirect="home"
               />
             ))
             .slice(0, 4)}

@@ -10,7 +10,6 @@ export default function WordList() {
   const wordList = useLoaderData();
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredWordList, setFilteredWordList] = useState(wordList);
-
   const handleSearchQueryChange = (event) => {
     const query = event.target.value;
     setSearchQuery(query);
@@ -18,8 +17,16 @@ export default function WordList() {
     const filteredList = wordList.filter((word) =>
       word.chineseCharacters.includes(query)
     );
-    console.log(filteredList);
     setFilteredWordList(filteredList);
+  };
+
+  const updateFilteredList = () => {
+    fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/words`, {
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => setFilteredWordList(data));
+    console.log("list updated");
   };
 
   return (
@@ -41,6 +48,8 @@ export default function WordList() {
                 pinyin={word.pinYin}
                 def={word.definition}
                 added={word.createdAt}
+                updateList={updateFilteredList}
+                redirect="wordlist"
               />
             ))}
         </List>

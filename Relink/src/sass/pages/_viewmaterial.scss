@@ -11,6 +11,10 @@
     background-color: rgba(133, 133, 25, 0.636);
     color: #dfdfdf;
   }
+  & .unknown-word,
+  .known-word {
+    white-space: nowrap;
+  }
 }
 
 .tooltip {

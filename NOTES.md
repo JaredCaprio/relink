@@ -38,3 +38,7 @@
 - Turned the `li` into a `Link` for the Dashboard/Login button on the landing page so the entire area of the button is clickable
 - added ellipsis menu to the `viewmaterial` so you can get to the edit page and also delete the material you're viewing
 - added search bar on `wordList`
+
+## April 20th, 2023
+
+- fix tooltip popping up in the middle of the screen when a word broke onto a new line

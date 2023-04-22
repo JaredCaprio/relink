@@ -14,7 +14,7 @@ export default function Tooltip({
   const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
   const [moddedButtonText, setModdedButtonText] = useState("Add to Word List");
   const ref = useRef();
-
+  console.log(range);
   useEffect(() => {
     if (range) {
       const tooltipRect = ref.current.getBoundingClientRect();

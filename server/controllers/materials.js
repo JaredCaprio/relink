@@ -22,7 +22,6 @@ module.exports = {
         .replace(/([0-9])([\u4e00-\u9fa5])/g, "$1 $2")
         .split(" ");
 
-      console.log(materialSplitArray);
       const foundWords = await User.aggregate([
         {
           $match: { "wordList.chineseCharacters": { $in: materialSplitArray } },
@@ -42,36 +41,33 @@ module.exports = {
       ]);
 
       if (foundWords.length < 1) {
-        material.body = materialSplitArray
-          .map((char) => {
-            return `<span class="unknown-word">${char}</span>`;
-          })
-          .join(" ");
+        const bodyArray = materialSplitArray.map((char) => {
+          return { word: char, known: false };
+        });
+        material.body = bodyArray;
+        /* console.log(material.body); */
         res.json(material);
         return;
       } else {
         const knownWords = foundWords[0].wordList.map((word) => {
           return word.chineseCharacters;
         });
-
+        console.log(material, "material");
         /*Reassigning the body of the material to an array that has 
       span tags wrapped around words not in the word list, ignoring punctuation,
       and joining it back together.*/
 
-        material.body = materialSplitArray
-          .map((char) => {
-            if (
-              /[\u4E00-\u9FFF\s]+/g.test(char) &&
-              !knownWords.includes(char)
-            ) {
-              return `<span class="unknown-word">${char}</span>`;
-            } else {
-              return char;
-            }
-          })
-          .join(" ");
+        material.body = materialSplitArray.map((char) => {
+          if (/[\u4E00-\u9FFF\s]+/g.test(char) && !knownWords.includes(char)) {
+            return { word: char, known: false };
+          } else {
+            return { word: char, known: true };
+          }
+        });
+
         //Check if logged in user is the creator of material
       }
+      console.log(material.body);
       if (req.user.googleId === material.user.googleId) {
         res.json(material);
       }
@@ -124,7 +120,7 @@ module.exports = {
   deleteMaterial: async (req, res) => {
     try {
       let material = await Materials.deleteOne({ _id: req.params.id });
-      console.log(material);
+
       res.json(true);
     } catch (error) {
       console.error(err);

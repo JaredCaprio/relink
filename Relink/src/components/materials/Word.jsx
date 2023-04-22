@@ -3,7 +3,15 @@ import PropTypes from "prop-types";
 import Ellipsismenu from "../ui/Ellipsismenu";
 import dayjs from "dayjs";
 
-export default function Word({ word, pinyin, def, added, id }) {
+export default function Word({
+  word,
+  pinyin,
+  def,
+  added,
+  id,
+  updateList,
+  redirect,
+}) {
   return (
     <div className="list__item">
       <div className="list__item-title-container">
@@ -15,14 +23,19 @@ export default function Word({ word, pinyin, def, added, id }) {
         {dayjs(added).format("MMMM D, YYYY")}
       </div>
 
-      <Ellipsismenu type="words" redirect="wordlist" id={id} />
+      <Ellipsismenu
+        type="words"
+        redirect={redirect}
+        id={id}
+        updateList={updateList}
+      />
     </div>
   );
 }
 
 Word.propTypes = {
-  word: PropTypes.string.isRequired,
-  pinyin: PropTypes.string.isRequired,
-  def: PropTypes.string.isRequired,
+  word: PropTypes.string,
+  pinyin: PropTypes.string,
+  def: PropTypes.string,
   hsk: PropTypes.string,
 };
