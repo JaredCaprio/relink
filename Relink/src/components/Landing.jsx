@@ -1,6 +1,9 @@
 import Header from "./headers/Header";
 import { Link } from "react-router-dom";
 import { useAuth } from "./auth/UserContext";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+
 export default function Landing() {
   const user = useAuth();
 
@@ -47,8 +50,11 @@ export default function Landing() {
             <i className="fa-solid fa-signal"></i>
             <h3 className="info-block__heading">Track Progress</h3>
             <p className="info-block__text">
-              Keep track of the words and reading materials added to your
-              profile.
+              Keep{" "}
+              <Tippy content="this is a test">
+                <span>track </span>
+              </Tippy>
+              of the words and reading materials added to your profile.
             </p>
           </div>
         </div>

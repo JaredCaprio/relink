@@ -30,6 +30,10 @@ export default function Sidebar() {
           <i className="fa-solid fa-signal" title="Statistics"></i>
           <p className="sidebar__nav-list-item-title">Statistics</p>
         </NavLink>
+        <NavLink className="sidebar__nav-list-item" to="/dictionary">
+          <i className="fa-solid fa-spell-check" title="dictionary"></i>
+          <p className="sidebar__nav-list-item-title">Dictionary</p>
+        </NavLink>
       </ul>
     </aside>
   );

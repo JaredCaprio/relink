@@ -13,10 +13,15 @@ module.exports = {
   },
   defineWord: (req, res) => {
     try {
-      cedict.searchByChinese(req.params.word, (words) => {
-        /* console.log(words); */
-        res.json(words);
-      });
+      if (/[\u4e00-\u9fa5]/g.test(req.params.word)) {
+        cedict.searchByChinese(req.params.word, (words) => {
+          res.json(words);
+        });
+      } else {
+        cedict.searchByPinyin(req.params.word, (words) => {
+          res.json(words);
+        });
+      }
     } catch (error) {
       console.error(error);
     }

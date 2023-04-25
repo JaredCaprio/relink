@@ -42,3 +42,9 @@
 ## April 20th, 2023
 
 - fix tooltip popping up in the middle of the screen when a word broke onto a new line
+
+## April 24th, 2023
+
+- Added dictionary page which allows user to search words by pinyin or chinese characters and add any word to their word list
+- created `Addwordbutton` component to abstract away all the login that goes into adding a word to the word list so it can be reuse in different pages of the app.
+

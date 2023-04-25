@@ -1,0 +1,11 @@
+{
+  "cSpell.enableFiletypes": [
+    "!javascriptreact",
+    "!scss",
+    "!javascript",
+    "!json",
+
+    "markdown",
+    "text"
+  ]
+}

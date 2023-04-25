@@ -14,7 +14,7 @@ module.exports = {
       path.join("./", "stanford-segmenter-2020-11-17", uniqueFileName),
       req.body.inputText
     );
-    const command = `segment.bat ctb ${uniqueFileName} UTF-8 0`;
+    const command = `segment.bat -k ctb ${uniqueFileName} UTF-8 0`;
 
     const child = exec(
       command,

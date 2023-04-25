@@ -16,7 +16,7 @@ export default function Dashboard() {
     <main className="main-content">
       <Homeheader headerTitle="Home" />
       <Greeting />
-      <Label name="Recently Added" />
+      <Label name="New Materials" />
       {materialsDashboardData.length > 0 ? (
         <List title1="Title" title2="Added" title3="Type">
           {materialsDashboardData.map((material) => (

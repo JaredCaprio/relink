@@ -3,13 +3,13 @@ import { useLoaderData } from "react-router-dom";
 import Homeheader from "../headers/Homeheader";
 import List from "../materials/List";
 import Word from "../materials/Word";
-import Emptylist from "../ui/Emptylist";
 import Searchbar from "../ui/Searchbar";
 
 export default function WordList() {
   const wordList = useLoaderData();
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredWordList, setFilteredWordList] = useState(wordList);
+
   const handleSearchQueryChange = (event) => {
     const query = event.target.value;
     setSearchQuery(query);
@@ -17,6 +17,7 @@ export default function WordList() {
     const filteredList = wordList.filter((word) =>
       word.chineseCharacters.includes(query)
     );
+
     setFilteredWordList(filteredList);
   };
 
@@ -35,6 +36,7 @@ export default function WordList() {
       <Searchbar
         onChangeFunc={handleSearchQueryChange}
         initValue={searchQuery}
+        placeholder="Search with Chinese Characters"
       />
       {filteredWordList.length > 0 ? (
         <List title1="Word" title2="Definition" title3="Added">

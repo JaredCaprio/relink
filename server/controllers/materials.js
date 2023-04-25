@@ -45,14 +45,13 @@ module.exports = {
           return { word: char, known: false };
         });
         material.body = bodyArray;
-        /* console.log(material.body); */
         res.json(material);
         return;
       } else {
         const knownWords = foundWords[0].wordList.map((word) => {
           return word.chineseCharacters;
         });
-        console.log(material, "material");
+
         /*Reassigning the body of the material to an array that has 
       span tags wrapped around words not in the word list, ignoring punctuation,
       and joining it back together.*/

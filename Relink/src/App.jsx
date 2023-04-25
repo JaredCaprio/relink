@@ -25,6 +25,7 @@ import Viewmaterial, {
 } from "./components/pages/Viewmaterial";
 import Editmaterial from "./components/pages/Editmaterial";
 import Statistics from "./components/pages/Statistics";
+import Dictionary from "./components/pages/Dictionary";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -45,6 +46,7 @@ const router = createBrowserRouter(
             <HomeLayout />
           </EnsureAuth>
         }
+        errorElement={<Error500 />}
       >
         <Route
           path="home"
@@ -80,6 +82,7 @@ const router = createBrowserRouter(
           element={<Statistics />}
           loader={DashboardLoader}
         ></Route>
+        <Route path="dictionary" element={<Dictionary />}></Route>
         <Route path="404" element={<Error404 />} exact></Route>
         <Route path="505" element={<Error500 />} exact></Route>
       </Route>

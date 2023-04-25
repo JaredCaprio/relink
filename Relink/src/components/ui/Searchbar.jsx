@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Searchbar({ onChangeFunc, initValue }) {
+export default function Searchbar({ onChangeFunc, initValue, placeholder }) {
   return (
     <div className="searchbar">
       <label htmlFor="searchbar__label">
@@ -10,7 +10,7 @@ export default function Searchbar({ onChangeFunc, initValue }) {
         type="text"
         id="search-input"
         className="searchbar__input"
-        placeholder="Search with Chinese Characters"
+        placeholder={placeholder}
         value={initValue}
         onChange={onChangeFunc}
       />
