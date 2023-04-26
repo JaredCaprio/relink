@@ -11,7 +11,7 @@ import {
 import Landing from "./components/Landing";
 import Login from "./components/Login";
 import Dashboard, { DashboardLoader } from "./components/pages/Dashboard";
-import HomeLayout from "./components/Layouts/HomeLayout";
+import HomeLayout from "./components/layouts/HomeLayout";
 import WordList, { wordListLoader } from "./components/pages/WordList";
 import UserContext from "./components/auth/UserContext";
 import EnsureAuth from "./components/auth/EnsureAuth";
