@@ -31,8 +31,6 @@ module.exports = {
       }
     );
 
-    console.log(req.body.inputText);
-
     child.on("exit", async (code) => {
       try {
         fsPromises.unlink(

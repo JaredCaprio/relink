@@ -8,6 +8,10 @@ export const useAuth = () => {
 
 export default function UserContext({ children }) {
   const [userData, setUserData] = useState({});
+  console.log(
+    import.meta.env.VITE_SERVER_DOMAIN,
+    import.meta.env.VITE_TEST_ENV_VAR
+  );
   const authUser = () => {
     useEffect(() => {
       fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/auth/api/user`, {

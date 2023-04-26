@@ -66,7 +66,7 @@ module.exports = {
 
         //Check if logged in user is the creator of material
       }
-      console.log(material.body);
+
       if (req.user.googleId === material.user.googleId) {
         res.json(material);
       }
@@ -76,7 +76,6 @@ module.exports = {
     }
   },
   addMaterial: async (req, res) => {
-    console.log(req.body, req.body.body);
     try {
       const findMaterial = await Materials.exists({
         title: req.body.title,
@@ -104,7 +103,7 @@ module.exports = {
     try {
       const updatedMaterial = req.body;
       let material = await Materials.findById(req.params.id);
-      console.log(req.body);
+
       material = await Materials.findByIdAndUpdate(
         req.params.id,
         updatedMaterial,

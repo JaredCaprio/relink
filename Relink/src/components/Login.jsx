@@ -1,15 +1,12 @@
 import React from "react";
+import relinkLogoLrg from "../assets/relink-logo-light.svg";
 
 export default function Login() {
   return (
     <div className="hero">
       <div className="login">
         <div className="login__container">
-          <img
-            className="login__logo"
-            src="src\assets\relink-logo-light.svg"
-            alt="relink logo"
-          />
+          <img className="login__logo" src={relinkLogoLrg} alt="relink logo" />
           <span className="login__subtext">
             Master Mandarin, one word at a time
           </span>

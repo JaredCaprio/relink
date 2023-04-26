@@ -5,7 +5,7 @@ const connectDB = require("./config/db");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const dotenv = require("dotenv");
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");

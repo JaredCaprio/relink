@@ -52,7 +52,6 @@ module.exports = {
   deleteWord: async (req, res) => {
     const userId = req.user.id;
 
-    console.log(req.params, "worked");
     try {
       const isWordAdded = await User.exists({
         "wordList._id": req.params.id,
