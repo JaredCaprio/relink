@@ -28,7 +28,7 @@ export default function Homeheader({ headerTitle }) {
   }, []);
 
   const logout = () => {
-    fetch("http://localhost:8080/auth/logout", {
+    fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/auth/logout`, {
       credentials: "include",
     })
       .then((res) => res.json())

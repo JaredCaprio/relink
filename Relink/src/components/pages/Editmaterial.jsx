@@ -6,11 +6,9 @@ export default function Editmaterial() {
   const materialData = useLoaderData();
   let mappedBody = materialData.body.map((word) => word.word).join("");
 
-  console.log(mappedBody);
-
   const { id } = useParams();
   const [formData, setFormData] = useState(materialData);
-  console.log(formData);
+
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();

@@ -22,7 +22,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: process.env.HOST_NAME,
+    origin: [process.env.HOST_NAME, process.env.PREVIEW_HOST],
     credentials: true,
   })
 );

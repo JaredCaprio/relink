@@ -1,14 +1,16 @@
 import { NavLink, Link } from "react-router-dom";
+import relinkLogoLrg from "../assets/relink-logo-light.svg";
+import relinkLogoSml from "../assets/Re.svg";
 
 export default function Sidebar() {
   return (
     <aside className="sidebar">
       <Link to="/">
         <picture>
-          <source media="(max-width: 1024px)" srcSet="../src/assets/re.svg" />
+          <source media="(max-width: 1024px)" srcSet={relinkLogoSml} />
           <img
             className="sidebar__logo logo"
-            src="../src/assets/relink-logo-light.svg"
+            src={relinkLogoLrg}
             alt="relink logo"
           />
         </picture>

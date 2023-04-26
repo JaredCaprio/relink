@@ -70,7 +70,6 @@ export default function Ellipsismenu({ type, id, redirect, updateList }) {
       if (redirect !== "home") {
         updateList();
       }
-      console.log(id);
     } else {
       navigate("/500");
     }

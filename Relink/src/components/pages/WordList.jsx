@@ -27,7 +27,6 @@ export default function WordList() {
     })
       .then((res) => res.json())
       .then((data) => setFilteredWordList(data));
-    console.log("list updated");
   };
 
   return (

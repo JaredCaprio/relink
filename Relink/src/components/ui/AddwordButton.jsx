@@ -26,7 +26,6 @@ export default function AddwordButton({
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data) {
           setModdedButtonText("Word Added");
           setTimeout(() => {

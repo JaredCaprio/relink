@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { userDataContext } from "../auth/UserContext";
 import { useContext } from "react";
+import relinkLogoLrg from "../../assets/relink-logo-light.svg";
+
 export default function Header() {
   const user = useContext(userDataContext);
   const [showNav, setShowNav] = useState(false);
@@ -24,11 +26,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <img
-        className="header__logo"
-        src="src\assets\relink-logo-light.svg"
-        alt="relink logo"
-      />
+      <img className="header__logo" src={relinkLogoLrg} alt="relink logo" />
 
       <ul className="header__nav-list">
         <li className="header__nav-list-item">

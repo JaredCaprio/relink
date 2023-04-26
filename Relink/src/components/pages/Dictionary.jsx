@@ -18,7 +18,6 @@ export default function Dictionary() {
       .then((res) => res.json())
       .then((data) => {
         setDictWords(data);
-        console.log(data);
       })
       .catch((error) => {
         setDictWords([]);
@@ -26,7 +25,6 @@ export default function Dictionary() {
         console.log(error);
       });
   };
-  console.log(dictWords);
 
   return (
     <main className="main-content">
