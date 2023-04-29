@@ -36,6 +36,7 @@ export default function Landing() {
             <h3 className="info-block__heading">Custom Word list</h3>
             <p className="info-block__text">
               Add words from imported materials to a custom list of known words
+              and see known words highlighted in saves materials.
             </p>
           </div>
           <div className="info-block">
