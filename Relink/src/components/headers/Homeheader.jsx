@@ -9,9 +9,7 @@ export default function Homeheader({ headerTitle }) {
   const ref = useRef();
 
   const toggleMenu = () => {
-    if (window.innerWidth < 768) {
-      setShowMenu(!showMenu);
-    }
+    setShowMenu(!showMenu);
   };
 
   const handleClickOutside = (event) => {

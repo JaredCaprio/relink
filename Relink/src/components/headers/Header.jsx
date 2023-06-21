@@ -18,6 +18,7 @@ export default function Header() {
     }
   };
   useEffect(() => {
+    console.log(import.meta.env.VITE_SERVER_DOMAIN);
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);

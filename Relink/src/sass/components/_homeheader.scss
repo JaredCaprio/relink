@@ -49,7 +49,7 @@
   transition: all 150ms ease-in-out;
   transform: translateX(0);
 
-  &::before {
+  /*   &::before {
     content: "";
     width: 0;
     height: 0;
@@ -60,7 +60,7 @@
     right: 30px;
     position: absolute;
     z-index: 2;
-  }
+  } */
   &__ul {
     display: flex;
     flex-direction: column;
@@ -84,27 +84,9 @@
 }
 
 //Tablet
-@media screen and (min-width: sz.$BPtablet) {
-  .home-header {
-    display: flex;
-    &__logout-btn,
-    &__profile,
-    &__profile i {
-      display: flex;
-    }
-    &__profile i {
-      border: 4px solid clr.$accentClrPrime;
-      transition: all 150ms ease-in-out;
-      &:hover {
-        background-color: clr.$accentClrPrime;
-      }
-    }
-    &__profile {
-      gap: 2em;
-    }
+@media screen and (max-width: sz.$BPtablet) {
+  .mobile-home-header {
+    padding: 0.02em;
   }
 }
-
 //Desktop View
-@media screen and (min-width: sz.$BPDesktop) {
-}

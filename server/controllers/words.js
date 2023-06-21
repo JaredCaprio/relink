@@ -1,5 +1,5 @@
 const User = require("../models/User");
-const cedict = require("coupling-dict-chinese");
+const cedict = require("coupling-chinese-dict-2023");
 
 module.exports = {
   //Returns all words from logged in user sorted by date, most recent first.
@@ -27,7 +27,7 @@ module.exports = {
     }
   },
   addword: async (req, res) => {
-    const userId = req.user.id;
+    const userId = await User.findById(req.user.id);
     try {
       //Check if word already added to wordlist
       const isWordAdded = await User.exists({
@@ -35,7 +35,7 @@ module.exports = {
       });
       if (isWordAdded === null) {
         const user = await User.findOneAndUpdate(
-          userId,
+          userId._id,
           {
             $push: { wordList: req.body, $sort: { createdAt: -1 } },
           },

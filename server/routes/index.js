@@ -11,8 +11,8 @@ router.post("/segment-text", indexController.segmentText);
 //@route GET /dashboard
 router.get("/dashboard", indexController.dashboard);
 
-//@desc [temp] serve index html page to submit text to be segmented
+//@desc [temp] serve index html page
 //@route GET /
-router.get("/", ensureGuest, indexController.getIndex);
+router.get("/", indexController.getIndex);
 
 module.exports = router;

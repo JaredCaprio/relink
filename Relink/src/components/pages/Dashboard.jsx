@@ -16,7 +16,7 @@ export default function Dashboard() {
     <main className="main-content">
       <Homeheader headerTitle="Home" />
       <Greeting />
-      <Label name="New Materials" />
+      <Label name="New Materials" haveLink={true} link="/readinglist" />
       {materialsDashboardData.length > 0 ? (
         <List title1="Title" title2="Added" title3="Type">
           {materialsDashboardData.map((material) => (
@@ -35,7 +35,7 @@ export default function Dashboard() {
         </List>
       )}
 
-      <Label name="New Words" />
+      <Label name="New Words" haveLink={true} link="/wordlist" />
 
       {wordsDashboardData.length > 0 ? (
         <List title1="Word" title2="Definition" title3="Added">

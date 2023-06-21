@@ -14,7 +14,7 @@ module.exports = {
       path.join("./", "stanford-segmenter-2020-11-17", uniqueFileName),
       req.body.inputText
     );
-    const command = `segment.bat -k ctb ${uniqueFileName} UTF-8 0`;
+    const command = `segment.sh -k ctb ${uniqueFileName} UTF-8 0`;
 
     const child = exec(
       command,
@@ -42,9 +42,7 @@ module.exports = {
     });
   },
   getIndex: (req, res) => {
-    res.sendFile("index.html", {
-      root: "./",
-    });
+    res.send("Welcome");
   },
   dashboard: async (req, res) => {
     try {

@@ -10,7 +10,6 @@ const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const cors = require("cors");
-const cedict = require("coupling-dict-chinese");
 const flash = require("connect-flash");
 
 //suppress mongoose deprecation warning
