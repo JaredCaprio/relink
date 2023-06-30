@@ -6,9 +6,23 @@ const { exec } = require("child_process");
 const { stdout } = require("process");
 const User = require("../models/User");
 const Materials = require("../models/Materials");
+const { PythonShell } = require("python-shell");
 
 module.exports = {
-  segmentText: async (req, res) => {
+  testPy: async (req, res) => {
+    let options = {
+      pythonPath: "python",
+      scriptPath: "./python",
+      pythonOptions: ["-u"],
+      args: [req.body.inputText],
+    };
+    PythonShell.run("jieba-segment.py", options).then((message) => {
+      console.log("finished", message);
+      res.send(message);
+    });
+  },
+
+  /*  segmentText: async (req, res) => {
     const uniqueFileName = `${uuidv4()}.utf8`;
     fsPromises.writeFile(
       path.join("./", "stanford-segmenter-2020-11-17", uniqueFileName),
@@ -40,7 +54,7 @@ module.exports = {
         console.log(`command err ${err} exit code ${code}`);
       }
     });
-  },
+  }, */
   getIndex: (req, res) => {
     res.send("Welcome");
   },

@@ -1,10 +1,10 @@
 {
   "cSpell.enableFiletypes": [
-    "!javascriptreact",
-    "!scss",
     "!javascript",
+    "!javascriptreact",
     "!json",
-
+    "!python",
+    "!scss",
     "markdown",
     "text"
   ]
