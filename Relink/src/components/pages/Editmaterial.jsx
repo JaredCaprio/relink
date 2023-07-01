@@ -6,6 +6,9 @@ export default function Editmaterial() {
   const materialData = useLoaderData();
   let mappedBody = materialData.body.map((word) => word.word).join("");
 
+  console.log("Material data", materialData);
+  console.log("Mapped Body", mappedBody);
+
   const { id } = useParams();
   const [formData, setFormData] = useState(materialData);
 
