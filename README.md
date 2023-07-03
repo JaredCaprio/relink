@@ -5,15 +5,17 @@ Relink is an app that allows you to sign in with your Google account, import Chi
 ##### Relink was built using the following technologies / Libraries:
 
     React
+    React Router Dom
     Vite
     SCSS
-    Node.js
+    Node
     npm
     Express
     Mongoose
+    MongoDB
     D3
 
-For word segmentation, the Stanford Segmenter 2020-11-17 is used, which needs to be downloaded from their website.
+Chinese word segmentation performed using [Jieba](https://github.com/fxsjy/jieba)
 
 Getting Started
 
@@ -23,10 +25,9 @@ Getting Started
 
 - Install the dependencies by running `npm install`
 
-- Download the Stanford Segmenter 2020-11-17 from their [website](https://nlp.stanford.edu/software/segmenter.shtml).
-  and place it in the server folder.
+- Run `cd server` then `npm run dev`
 
-- Start the development server by running npm run dev.
+- Open another terminal window and `cd Relink` then `npm run dev`
 
 Navigate to http://localhost:5173 in your web browser.
 
