@@ -19,7 +19,7 @@ module.exports = {
       const materialSplitArray = material.body
         .trim()
         .replace(/[\r\n]/g, "")
-        .replace(/([0-9])([\u4e00-\u9fa5])/g, "$1 $2")
+        .replace(/([0-9])([\u4e00-\u9fa5])/g, "$1 $2 ")
         .split(" ");
 
       const foundWords = await User.aggregate([
@@ -118,7 +118,7 @@ module.exports = {
   deleteMaterial: async (req, res) => {
     try {
       let material = await Materials.deleteOne({ _id: req.params.id });
-
+      console.log(material);
       res.json(true);
     } catch (error) {
       console.error(err);
