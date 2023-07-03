@@ -41,6 +41,10 @@
   justify-content: space-between;
 }
 
+.floated {
+  float: left;
+}
+
 @media screen and (max-width: 500px) {
   .flex-between {
     flex-direction: column;

@@ -1,27 +1,34 @@
 import React, { useState } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Homeheader from "../headers/Homeheader";
+import { Link } from "react-router-dom";
 
 export default function Editmaterial() {
   const materialData = useLoaderData();
   let mappedBody = materialData.body.map((word) => word.word).join("");
 
-  console.log("Material data", materialData);
-  console.log("Mapped Body", mappedBody);
-
   const { id } = useParams();
   const [formData, setFormData] = useState(materialData);
-
   const navigate = useNavigate();
+
+  //check type of formData.body to determine if it has been edited
+  const bodyWasEdited = typeof formData.body === "string";
+
+  //Function to handle submission of form
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    const requestData = bodyWasEdited
+      ? formData
+      : { ...formData, body: mappedBody };
+
     fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/materials/edit/${id}`, {
       credentials: "include",
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(requestData),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -84,10 +91,17 @@ export default function Editmaterial() {
               defaultValue={mappedBody}
             ></textarea>
           </div>
-          <input type="submit" className="btn large-btn" value="Submit" />
-          <button className="btn large-btn" value="Cancel">
-            Cancel
-          </button>
+
+          <input
+            type="submit"
+            className="btn large-btn floated"
+            value="Submit"
+          />
+          <Link to="/readinglist">
+            <button className="btn large-btn floated" value="Cancel">
+              Cancel
+            </button>
+          </Link>
         </form>
       </div>
     </main>

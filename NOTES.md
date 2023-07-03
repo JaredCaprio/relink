@@ -48,3 +48,6 @@
 - Added dictionary page which allows user to search words by pinyin or chinese characters and add any word to their word list
 - created `Addwordbutton` component to abstract away all the login that goes into adding a word to the word list so it can be reuse in different pages of the app.
 
+## July 3rd, 2023
+
+- fixed bug with editMaterial page where if the material was submit without changing anything in the body it would just submit a string of "[object]" equal to the number of words in the body of the material.

@@ -5,7 +5,7 @@ import Ellipsismenu from "../ui/Ellipsismenu";
 import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 
-export default function Material({ title, added, type, id }) {
+export default function Material({ title, added, type, id, redirect }) {
   const navigate = useNavigate();
 
   return (
@@ -16,7 +16,7 @@ export default function Material({ title, added, type, id }) {
           {dayjs(added).format("MMMM D, YYYY h:mm A")}
         </div>
         <div className="list__item-type">{type}</div>
-        <Ellipsismenu type="materials" id={id} redirect="readinglist" />
+        <Ellipsismenu type="materials" id={id} redirect={redirect} />
       </div>
     </div>
   );

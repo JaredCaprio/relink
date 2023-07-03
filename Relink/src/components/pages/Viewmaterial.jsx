@@ -7,7 +7,6 @@ import Tippytooltip from "../utils/Tippytooltip";
 export default function Viewmaterial() {
   const { id } = useParams();
   const material = useLoaderData();
-  console.log(material.body);
 
   //create makeup for materialbody
   function createMarkup() {

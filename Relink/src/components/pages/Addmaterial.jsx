@@ -71,7 +71,7 @@ export default function Addmaterial() {
               placeholder="Enter Text Here"
             ></textarea>
           </div>
-          <input type="submit" className="btn submit-btn" value="Submit" />
+          <input type="submit" className="btn large-btn" value="Submit" />
         </form>
       </div>
     </main>

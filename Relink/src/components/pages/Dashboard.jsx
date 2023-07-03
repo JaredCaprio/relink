@@ -26,6 +26,7 @@ export default function Dashboard() {
               title={material.title}
               added={material.createdAt}
               type={material.type}
+              redirect={"home"}
             />
           ))}
         </List>

@@ -63,12 +63,13 @@ export default function Ellipsismenu({ type, id, redirect, updateList }) {
       }
     );
     const data = await res.json();
-    console.log(data.wordList);
-    if (data.deleted) {
+    if (data) {
       navigate(`/${redirect}`);
       handleClickOutside(false);
-      if (redirect !== "home") {
+      if (redirect !== "home" && type === "words") {
         updateList();
+      } else {
+        return;
       }
     } else {
       navigate("/500");

@@ -1,6 +1,7 @@
 @use "../abstracts/" as vars;
 
 .btn {
+  max-width: 50%;
   border: 3px solid vars.$accentClrPrime;
   border-radius: vars.$borderRadiusLight;
   background-color: vars.$accentClrLight;
@@ -28,7 +29,6 @@
 }
 
 .large-btn {
-  display: inline-block;
   font-size: 1.5rem;
   margin: 0.5em;
   text-align: center;

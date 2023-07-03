@@ -84,7 +84,7 @@ const router = createBrowserRouter(
         ></Route>
         <Route path="dictionary" element={<Dictionary />}></Route>
         <Route path="404" element={<Error404 />} exact></Route>
-        <Route path="505" element={<Error500 />} exact></Route>
+        <Route path="500" element={<Error500 />} exact></Route>
       </Route>
     </Route>
   )

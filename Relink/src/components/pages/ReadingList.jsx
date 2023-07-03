@@ -20,6 +20,7 @@ export default function Readinglist() {
               title={material.title}
               added={material.createdAt}
               type={material.type}
+              redirect={"readinglist"}
             />
           ))}
         </List>
