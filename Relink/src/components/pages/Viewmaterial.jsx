@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import Homeheader from "../headers/Homeheader";
 import Ellipsismenu from "../ui/Ellipsismenu";
 import Tippytooltip from "../utils/Tippytooltip";
+/* import { redirect } from "react-router-dom"; */
 
 export default function Viewmaterial() {
   const { id } = useParams();

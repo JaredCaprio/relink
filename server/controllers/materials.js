@@ -24,7 +24,10 @@ module.exports = {
 
       const foundWords = await User.aggregate([
         {
-          $match: { "wordList.chineseCharacters": { $in: materialSplitArray } },
+          $match: {
+            _id: req.user._id,
+            "wordList.chineseCharacters": { $in: materialSplitArray },
+          },
         },
         {
           $project: {
@@ -39,6 +42,7 @@ module.exports = {
           },
         },
       ]);
+      console.log(foundWords);
 
       if (foundWords.length < 1) {
         const bodyArray = materialSplitArray.map((char) => {
@@ -52,10 +56,6 @@ module.exports = {
           return word.chineseCharacters;
         });
 
-        /*Reassigning the body of the material to an array that has 
-      span tags wrapped around words not in the word list, ignoring punctuation,
-      and joining it back together.*/
-
         material.body = materialSplitArray.map((char) => {
           if (/[\u4E00-\u9FFF\s]+/g.test(char) && !knownWords.includes(char)) {
             return { word: char, known: false };
@@ -68,10 +68,16 @@ module.exports = {
       }
 
       if (req.user.googleId === material.user.googleId) {
+        console.log(
+          req.user.googleId,
+          "bing bongs",
+          material.user.googleId,
+          "TingTongs"
+        );
         res.json(material);
       }
     } catch (error) {
-      res.json(false);
+      res.status(403).json(false);
       console.error(error);
     }
   },
@@ -103,7 +109,6 @@ module.exports = {
     try {
       const updatedMaterial = req.body;
       let material = await Materials.findById(req.params.id);
-
       material = await Materials.findByIdAndUpdate(
         req.params.id,
         updatedMaterial,

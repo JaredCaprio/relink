@@ -8,12 +8,12 @@
 
 ### TODO
 
-- [] Display a message on the statistics page if there are not materials saved but are words in the wordList
-
 ### In progress ...
 
 ### Done ✓
 
+- [x] Display a message on the statistics page if there are not materials saved but are words in the wordList
+- [x] Client getting known words list from wrong user
 - [x] fixed bug with submitting material without editing the body
 - [x] work on having the imported text be formatted better for the segmenter, specifically with punctuation
 - [x] Fix the buggy positioning of the word def tooltips

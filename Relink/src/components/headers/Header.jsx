@@ -18,9 +18,6 @@ export default function Header() {
     }
   };
   useEffect(() => {
-    console.log(import.meta.env.VITE_SERVER_DOMAIN);
-    console.log(import.meta.env.VITE_LOCAL_DOMAIN);
-    console.log(import.meta.env.VITE_IPINFO_KEY);
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);

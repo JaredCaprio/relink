@@ -91,7 +91,6 @@ export default function Editmaterial() {
               defaultValue={mappedBody}
             ></textarea>
           </div>
-
           <input
             type="submit"
             className="btn large-btn floated"

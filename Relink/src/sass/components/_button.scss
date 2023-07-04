@@ -1,7 +1,7 @@
 @use "../abstracts/" as vars;
 
 .btn {
-  max-width: 50%;
+  max-width: 100%;
   border: 3px solid vars.$accentClrPrime;
   border-radius: vars.$borderRadiusLight;
   background-color: vars.$accentClrLight;
@@ -31,7 +31,7 @@
 .large-btn {
   font-size: 1.5rem;
   margin: 0.5em;
+  width: calc(11.3rem + 5vw);
   text-align: center;
-  width: 150px;
   min-width: 120px;
 }

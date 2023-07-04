@@ -31,6 +31,7 @@ module.exports = {
     try {
       //Check if word already added to wordlist
       const isWordAdded = await User.exists({
+        _id: req.user._id,
         "wordList.chineseCharacters": req.body.chineseCharacters,
       });
       if (isWordAdded === null) {

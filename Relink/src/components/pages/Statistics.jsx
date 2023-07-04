@@ -12,7 +12,7 @@ export default function Statistics() {
   const words = userData.words[0].wordList;
   const materials = userData.materials;
 
-  /*  const [data, setData] = useState({}); */
+  console.log(userData);
 
   const createSVGChart = (data, svgEl, type, bgClr) => {
     //Sorting by Date
@@ -50,7 +50,7 @@ export default function Statistics() {
       .append("text")
       .attr("x", 10)
       .attr("y", 50)
-      .text(`Total ${type}: ${formattedData[formattedData.length - 1].value}`)
+      .text(`Total ${type}: ${formattedData[formattedData?.length - 1].value}`)
       .attr("fill", "white");
 
     //setup scaling
@@ -97,12 +97,13 @@ export default function Statistics() {
   };
 
   useEffect(() => {
-    if (
-      userData.words[0].wordList.length > 2 &&
-      userData.materials.length > 1
-    ) {
+    if (words.length > 0 && materials.length > 0) {
       createSVGChart(words, svgRef1, "Words", "#261004");
       createSVGChart(materials, svgRef2, "Materials", "#11181C");
+    } else if (materials.length > 0) {
+      createSVGChart(materials, svgRef2, "Materials", "#11181C");
+    } else if (words.length > 0) {
+      createSVGChart(words, svgRef1, "Words", "#261004");
     }
   }, []);
 
@@ -110,7 +111,7 @@ export default function Statistics() {
     <main className="main-content">
       <Homeheader headerTitle="Statistics" />
       <Label name="Known Words" />
-      {userData.words[0].wordList.length > 0 ? (
+      {words.length > 0 ? (
         <div className="list" style={{ padding: "2rem 3rem" }}>
           <svg ref={svgRef1}></svg>
         </div>
@@ -119,7 +120,7 @@ export default function Statistics() {
       )}
 
       <Label name="Materials" />
-      {userData.materials.length > 1 ? (
+      {materials.length > 0 ? (
         <div className="list">
           <svg ref={svgRef2}></svg>
         </div>

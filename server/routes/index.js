@@ -1,11 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const indexController = require("../controllers/index");
-const { ensureGuest, ensureAuth } = require("../middleware/auth");
-
-//@desc return segmented chinese text
-//@route POST /segment-text
-/* router.post("/segment-text", indexController.segmentText); */
+/* const { ensureGuest, ensureAuth } = require("../middleware/auth"); */
 
 //@desc send latest materials and words for the dashboard page
 //@route GET /dashboard
@@ -14,8 +10,5 @@ router.get("/dashboard", indexController.dashboard);
 //@desc [temp] serve index html page
 //@route GET /
 router.get("/", indexController.getIndex);
-
-//test python scripts
-router.get("/", indexController.testPy);
 
 module.exports = router;

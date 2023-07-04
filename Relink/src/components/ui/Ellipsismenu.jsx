@@ -45,7 +45,6 @@ export default function Ellipsismenu({ type, id, redirect, updateList }) {
           navigate(`/${redirect}`);
           handleClickOutside(false);
           updateList();
-          console.log(id);
         } else {
           navigate("/500");
         }
