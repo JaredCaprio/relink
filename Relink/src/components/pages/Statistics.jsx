@@ -98,12 +98,12 @@ export default function Statistics() {
 
   useEffect(() => {
     if (words.length > 0 && materials.length > 0) {
-      createSVGChart(words, svgRef1, "Words", "#261004");
-      createSVGChart(materials, svgRef2, "Materials", "#11181C");
+      createSVGChart(words, svgRef1, "Words", "#6B6D76");
+      createSVGChart(materials, svgRef2, "Materials", "#06070E");
     } else if (materials.length > 0) {
-      createSVGChart(materials, svgRef2, "Materials", "#11181C");
+      createSVGChart(materials, svgRef2, "Materials", "#06070E");
     } else if (words.length > 0) {
-      createSVGChart(words, svgRef1, "Words", "#261004");
+      createSVGChart(words, svgRef1, "Words", "#6B6D76");
     }
   }, []);
 

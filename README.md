@@ -45,7 +45,7 @@ To use Relink, follow these steps:
 
 #### Contributing
 
-If you would like to contribute to Relink, feel free to submit a pull request. Please make sure to follow the existing code style and add appropriate tests.
+If you would like to contribute to Relink, feel free to submit a pull request. Please make sure to follow the existing code style.
 
 #### License
 

@@ -2,6 +2,7 @@
 
 ### Back burner
 
+- [ ] Make wordList load more words on scroll rather than loading all at once
 - [ ] Add chinese translation of site with the ability to switch between english and chinese from a dropdown menu
 - [ ] Look into finding a different dictionary api that includes hsk level and aligns more with the word segmenter's bias.
 - [ ] ability to add all words from any or all of the HSK levels to word list .

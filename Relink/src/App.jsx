@@ -82,7 +82,7 @@ const router = createBrowserRouter(
           element={<Statistics />}
           loader={DashboardLoader}
         ></Route>
-        <Route path="dictionary" element={<Dictionary />}></Route>
+        <Route path="dictionary" element={<Dictionary />} exact></Route>
         <Route path="404" element={<Error404 />} exact></Route>
         <Route path="500" element={<Error500 />} exact></Route>
       </Route>
