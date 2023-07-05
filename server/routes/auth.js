@@ -3,7 +3,6 @@ const router = express.Router();
 const passport = require("passport");
 const { ensureAuth } = require("../middleware/auth");
 const User = require("../models/User");
-/* const jwt = require("jsonwebtoken"); */
 
 // @desc  Auth with Google
 // @route GET /auth/google
