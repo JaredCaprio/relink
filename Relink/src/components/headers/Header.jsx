@@ -11,6 +11,8 @@ export default function Header() {
   const toggleNav = () => {
     setShowNav(!showNav);
   };
+  console.log(import.meta.env.VITE_SERVER_DOMAIN, "SERVER");
+  console.log(import.meta.env.VITE_LOCAL_DOMAIN, "LOCAL");
 
   const handleClickOutside = (event) => {
     if (ref.current && !ref.current.contains(event.target)) {

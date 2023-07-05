@@ -68,12 +68,6 @@ module.exports = {
       }
 
       if (req.user.googleId === material.user.googleId) {
-        console.log(
-          req.user.googleId,
-          "bing bongs",
-          material.user.googleId,
-          "TingTongs"
-        );
         res.json(material);
       }
     } catch (error) {
