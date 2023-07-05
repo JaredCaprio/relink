@@ -13,7 +13,6 @@ export default function Header() {
   };
   console.log(import.meta.env.VITE_SERVER_DOMAIN, "SERVER");
   console.log(import.meta.env.VITE_LOCAL_DOMAIN, "LOCAL");
-  console.log("Testing new time");
 
   const handleClickOutside = (event) => {
     if (ref.current && !ref.current.contains(event.target)) {
