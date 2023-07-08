@@ -21,7 +21,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: process.env.HOST_NAME,
+    origin: [process.env.HOST_NAME, process.env.PREVIEW_HOST],
     credentials: true,
   })
 );
@@ -45,7 +45,7 @@ app.use(
       mongoUrl: process.env.MONGO_URI,
       collectionName: "sessions",
     }),
-    cookie: { expires: false, sameSite: "none" },
+    cookie: { expires: false, sameSite: "none", secure: true },
   })
 );
 

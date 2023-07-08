@@ -10,7 +10,7 @@ export default function Login() {
           <span className="login__subtext">
             Master Mandarin, one word at a time
           </span>
-          <p>Welcome Back!</p>
+          <p>Welcome!</p>
           <a
             href={`${import.meta.env.VITE_SERVER_DOMAIN}/auth/google`}
             className="btn__google"
