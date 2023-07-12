@@ -19,12 +19,7 @@ mongoose.set("strictQuery", true);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: [process.env.HOST_NAME, process.env.PREVIEW_HOST],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 console.log(process.env.HOST_NAME);
 
