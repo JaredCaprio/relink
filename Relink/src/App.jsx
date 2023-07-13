@@ -49,42 +49,42 @@ const router = createBrowserRouter(
         errorElement={<Error500 />}
       >
         <Route
-          path="home"
+          path="/home"
           loader={DashboardLoader}
           element={<Dashboard />}
           exact
         />
         <Route
-          path="wordlist"
+          path="/wordlist"
           loader={wordListLoader}
           element={<WordList />}
           exact
         />
-        <Route path="addmaterial" element={<Addmaterial />} exact />
+        <Route path="/addmaterial" element={<Addmaterial />} exact />
         <Route
-          path="readinglist"
+          path="/readinglist"
           element={<Readinglist />}
           loader={materialsLoader}
           exact
         />
         <Route
-          path="materials/:id"
+          path="/materials/:id"
           loader={viewMaterialsLoader}
           element={<Viewmaterial />}
         ></Route>
         <Route
-          path="materials/edit/:id"
+          path="/materials/edit/:id"
           loader={viewMaterialsLoader}
           element={<Editmaterial />}
         ></Route>
         <Route
-          path="statistics"
+          path="/statistics"
           element={<Statistics />}
           loader={DashboardLoader}
         ></Route>
-        <Route path="dictionary" element={<Dictionary />} exact></Route>
-        <Route path="404" element={<Error404 />} exact></Route>
-        <Route path="500" element={<Error500 />} exact></Route>
+        <Route path="/dictionary" element={<Dictionary />} exact></Route>
+        <Route path="/404" element={<Error404 />} exact></Route>
+        <Route path="/500" element={<Error500 />} exact></Route>
       </Route>
     </Route>
   )
