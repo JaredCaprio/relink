@@ -49,7 +49,11 @@ app.use(
       mongoUrl: process.env.MONGO_URI,
       collectionName: "sessions",
     }),
-    cookie: { expires: false, sameSite: "none", secure: true },
+    cookie: {
+      secure: true,
+      sameSite: "none",
+      maxAge: 60 * 60 * 24 * 1000,
+    },
   })
 );
 
