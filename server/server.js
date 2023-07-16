@@ -30,14 +30,8 @@ app.use(
   })
 );
 
-console.log(process.env.HOST_NAME);
-
-app.use(flash());
 //database connection
 connectDB();
-
-//passport Config
-require("./config/passport")(passport);
 
 //sessions
 app.use(
@@ -50,21 +44,24 @@ app.use(
       collectionName: "sessions",
     }),
     cookie: {
-      secure: true,
+      /*  secure: true, */
       sameSite: "none",
       maxAge: 60 * 60 * 24 * 1000,
     },
   })
 );
 
+//passport Config
+require("./config/passport")(passport);
+
 //passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
 //routes
+app.use("/auth", require("./routes/auth"));
 app.use("/", require("./routes/index"));
 app.use("/words", require("./routes/words"));
-app.use("/auth", require("./routes/auth"));
 /* app.use("/profile", require("./routes/profile")); */
 app.use("/materials", require("./routes/materials"));
 app.use("/api", require("./routes/api"));

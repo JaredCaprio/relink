@@ -42,7 +42,6 @@ module.exports = {
           },
         },
       ]);
-      console.log(foundWords);
 
       if (foundWords.length < 1) {
         const bodyArray = materialSplitArray.map((char) => {
@@ -117,7 +116,7 @@ module.exports = {
   deleteMaterial: async (req, res) => {
     try {
       let material = await Materials.deleteOne({ _id: req.params.id });
-      console.log(material);
+
       res.json(true);
     } catch (error) {
       console.error(err);

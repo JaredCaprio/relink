@@ -9,6 +9,7 @@ import Emptylist from "../ui/Emptylist";
 
 export default function Dashboard() {
   const dashboardData = useLoaderData();
+  console.log(dashboardData);
   const materialsDashboardData = dashboardData.materials;
   const wordsDashboardData = dashboardData.words[0].wordList;
 
