@@ -44,8 +44,8 @@ app.use(
       collectionName: "sessions",
     }),
     cookie: {
-      /*  secure: true, */
-      /* sameSite: "none", */
+      /* secure: true, */
+      sameSite: false,
       maxAge: 60 * 60 * 24 * 1000,
     },
   })
