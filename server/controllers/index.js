@@ -7,6 +7,7 @@ module.exports = {
   },
   dashboard: async (req, res) => {
     const userId = req.user.id || null;
+    console.log(req.user, "DASHBOARD ROUTE");
     try {
       const materials = await Materials.where("user")
         .equals(userId)
