@@ -6,11 +6,8 @@ module.exports = {
     res.send("Welcome");
   },
   dashboard: async (req, res) => {
-    const userId = req.user.id || null;
-    console.log(req.user, "DASHBOARD ROUTE");
     try {
-      const materials = await Materials.where("user")
-        .equals(userId)
+      const materials = await Materials.find({ user: req.user.id })
         .limit(4)
         .sort({ createdAt: -1 });
       const words = await User.find({ _id: req.user.id }, { wordList: 1 });
