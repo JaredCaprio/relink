@@ -47,9 +47,9 @@ app.use(
       collectionName: "sessions",
     }),
     cookie: {
-      secure: true,
-      sameSite: "lax",
-      maxAge: 60 * 60 * 24 * 1000,
+      /* secure: true, */
+      /* sameSite: "lax",
+      maxAge: 60 * 60 * 24 * 1000, */
     },
   })
 );
