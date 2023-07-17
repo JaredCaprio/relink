@@ -33,6 +33,9 @@ app.use(
 //database connection
 connectDB();
 
+//passport Config
+require("./config/passport")(passport);
+
 //sessions
 app.use(
   session({
@@ -44,15 +47,12 @@ app.use(
       collectionName: "sessions",
     }),
     cookie: {
-      /* secure: true, */
-      sameSite: false,
+      secure: true,
+      sameSite: "lax",
       maxAge: 60 * 60 * 24 * 1000,
     },
   })
 );
-
-//passport Config
-require("./config/passport")(passport);
 
 //passport middleware
 app.use(passport.initialize());
