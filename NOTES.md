@@ -51,3 +51,7 @@
 ## July 3rd, 2023
 
 - fixed bug with editMaterial page where if the material was submit without changing anything in the body it would just submit a string of "[object]" equal to the number of words in the body of the material.
+
+## July 18th, 2023
+
+- Unable to resolve issues with deploying to vercel and railway. Works perfectly on my machine but once hosted on railway, when I attempt to log in I get an error saying req.user.id on line 10 of controllers/index.js is undefined. I feel like it has something to do with express sessions or connect-mongo adding the user property to the each req object after authentication. But I'm unable to see anything wrong with the way I configured passport, express sessions, or connect-mongo.
