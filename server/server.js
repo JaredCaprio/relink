@@ -36,16 +36,15 @@ require("./config/passport")(passport);
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    resave: false,
     saveUninitialized: false,
+    resave: false,
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URI,
       collectionName: "sessions",
       stringify: false,
     }),
     cookie: {
-      sameSite: "none",
-      maxAge: 60 * 60 * 24 * 1000,
+      maxAge: 1209600,
     },
   })
 );
