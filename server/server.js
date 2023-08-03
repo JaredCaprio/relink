@@ -45,6 +45,10 @@ app.use(
     }),
     cookie: {
       maxAge: 1209600,
+      domain: process.env.COOKIE_DOMAIN,
+      secure: true,
+      httpOnly: true,
+      sameSite: "strict",
     },
   })
 );
