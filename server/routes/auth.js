@@ -15,10 +15,7 @@ router.get(
   passport.authenticate("google", {
     failureRedirect: "/",
     successRedirect: `${process.env.HOST_NAME}/home`,
-  }) /* ,
-  (req, res) => {
-    res.redirect(`${process.env.HOST_NAME}/home`);
-  } */
+  })
 );
 
 //@desc Logout user

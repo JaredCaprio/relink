@@ -29,6 +29,8 @@ Getting Started
 
 - Open another terminal window and `cd Relink` then `npm run dev`
 
+- Open a third terminal window and `cd python` then `python app.py`
+
 Navigate to http://localhost:5173 in your web browser.
 
 ##### Usage
@@ -42,10 +44,6 @@ To use Relink, follow these steps:
 - Add words to your word list from the imported materials.
 
 - View statistics on how your vocabulary and reading list are growing.
-
-#### Contributing
-
-If you would like to contribute to Relink, feel free to submit a pull request. Please make sure to follow the existing code style.
 
 #### License
 

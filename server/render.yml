@@ -1,9 +1,0 @@
-services:
-  -type: web
-  name: relink-server
-  runtime: docker
-  repo: https://github.com/JaredCaprio/relink
-  region: ohio
-  branch: main
-  rootDir: server
-  buildCommand: "npm install && pip install -r requirements.txt"

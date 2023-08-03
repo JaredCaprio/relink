@@ -55,3 +55,12 @@
 ## July 18th, 2023
 
 - Unable to resolve issues with deploying to vercel and railway. Works perfectly on my machine but once hosted on railway, when I attempt to log in I get an error saying req.user.id on line 10 of controllers/index.js is undefined. I feel like it has something to do with express sessions or connect-mongo adding the user property to the each req object after authentication. But I'm unable to see anything wrong with the way I configured passport, express sessions, or connect-mongo.
+
+## August 2nd, 2023
+
+- finally found a solution to the problem I was dealing with. The express-session cookies wasn't the issue, it was just that render.com for whatever reason doesn't allow cross-domain cookie or even cross-subdomain cookies. The solution was to purchase a custom domain for the app and connect it to render. Also, I registered separate subdomains for the api and Jieba (word segmenter).
+  client: www.relingq.com
+  Jieba: www.jieba.relingq.com
+  API: www.api.relingq.com
+
+- Instead of running my python script inside the node app with the python-shell package, I had to set up a separate web service on render for it. I build a flask app and served it with waitress. In the segmenter middleware on the server, I used axios to make a post request to the flask app with the body of the material and then passed the segmented text along to the route handler.
