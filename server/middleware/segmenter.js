@@ -11,7 +11,7 @@ const { PythonShell } = require("python-shell");
 module.exports = {
   segmentText: async (req, res, next) => {
     let options = {
-      pythonPath: "C:/Python39/python.exe",
+      pythonPath: "python3",
       scriptPath: "./python",
       pythonOptions: ["-u"],
       args: [req.body.body],
