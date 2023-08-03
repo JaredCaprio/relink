@@ -22,6 +22,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: [process.env.HOST_NAME, process.env.PREVIEW_HOST],
+    methods: ["POST", "PUT", "GET", "DELETE", "PATCH"],
     credentials: true,
   })
 );
@@ -31,6 +32,8 @@ connectDB();
 
 //passport Config
 require("./config/passport")(passport);
+
+app.set("trust proxy", 1);
 
 //sessions
 app.use(
@@ -43,16 +46,14 @@ app.use(
       collectionName: "sessions",
       stringify: false,
     }),
+    name: "Relink Session ID",
     cookie: {
-      maxAge: 1209600,
+      maxAge: null,
       domain: process.env.COOKIE_DOMAIN,
-      secure: true,
-      httpOnly: true,
-      sameSite: "strict",
     },
   })
 );
-
+console.log(process.env.COOKIE_DOMAIN);
 //passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
