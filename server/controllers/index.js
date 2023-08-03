@@ -6,7 +6,6 @@ module.exports = {
     res.send("Welcome");
   },
   dashboard: async (req, res) => {
-    console.log(req.user);
     try {
       const materials = await Materials.find({ user: req.user.id })
         .limit(4)
