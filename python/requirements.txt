@@ -1,3 +1,4 @@
 jieba
 Flask
-Flask-Cors
+flask_cors
+waitress

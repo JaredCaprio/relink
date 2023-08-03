@@ -1,13 +1,11 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 import jieba
-import sys
+from waitress import serve
+
 app = Flask(__name__)
 cors = CORS(app)
-
-
 app.config['CORS_HEADERS'] = 'Content-Type'
-
 
 @app.route('/', methods=["GET"])
 def home_route():
@@ -27,5 +25,6 @@ def api_run_script():
         return 'Content-Type not supported!'
 
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True, port=5000)
+
+serve(app, host="0.0.0.0", port=5000)
+
