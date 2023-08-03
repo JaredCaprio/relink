@@ -1,1 +1,2 @@
+python_version == 3.9.6
 jieba==0.42.1
