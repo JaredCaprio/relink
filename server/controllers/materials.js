@@ -75,6 +75,7 @@ module.exports = {
     }
   },
   addMaterial: async (req, res) => {
+    console.log("from addMaterial controller", req.body);
     try {
       const findMaterial = await Materials.exists({
         title: req.body.title,

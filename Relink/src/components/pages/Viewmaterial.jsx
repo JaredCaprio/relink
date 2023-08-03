@@ -9,8 +9,6 @@ export default function Viewmaterial() {
   const { id } = useParams();
   const material = useLoaderData();
 
-  console.log(material);
-
   //create makeup for materialbody
   function createMarkup() {
     return { __html: material.body };
