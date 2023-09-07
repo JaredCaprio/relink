@@ -45,7 +45,7 @@ To use Relink, follow these steps:
 
 - View statistics on how your vocabulary and reading list are growing.
 
-(![Demo gif 1](github/relink-gif-1.gif))
+![Demo gif 1](github/relink-gif-1.gif)
 ![Demo gif 2](github/relink-gif-2.gif)
 
 #### License
