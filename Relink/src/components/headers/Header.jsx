@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { userDataContext } from "../auth/UserContext";
 import { useContext } from "react";
 import relinkLogoLrg from "../../assets/relink-logo-light.svg";
+import Homeheader from "./Homeheader";
 
 export default function Header() {
   const user = useContext(userDataContext);
+  console.log(user);
   const [showNav, setShowNav] = useState(false);
   const ref = useRef();
   const toggleNav = () => {
@@ -41,7 +43,17 @@ export default function Header() {
         >
           {user ? "Dashboard" : "Login"}
         </Link>
+
+        {/*   {user ? (
+          <img
+            referrerpolicy="no-referrer"
+            src={user.image}
+            style={{ borderRadius: "50%", height: "84px" }}
+            title={user.displayName}
+          />
+        ) : null} */}
       </ul>
+      <Homeheader />
       <div
         ref={ref}
         onClick={() => toggleNav()}

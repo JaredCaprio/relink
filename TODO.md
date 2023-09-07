@@ -9,6 +9,8 @@
 
 ### TODO
 
+- [ ] Add user profile picture on the landing page next to the dashboard button
+
 ### In progress ...
 
 ### Done ✓
