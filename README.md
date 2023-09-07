@@ -33,20 +33,19 @@ Getting Started
 
 Navigate to http://localhost:5173 in your web browser.
 
-##### Usage
+### Usage
 
-To use Relink, follow these steps:
+##### Import Chinese text into your reading list 📓
 
-- Sign in with your Google account.
+![Add Meterials](github/relink-gif-2.gif)
 
-- Import Chinese text into your reading list.
+##### Add words to your word list from the imported materials 📜
 
-- Add words to your word list from the imported materials.
+![Add Words](github/relink-gif-3.gif)
 
-- View statistics on how your vocabulary and reading list are growing.
+##### Look up words in the dictionary. View statistics on how your vocabulary and reading list are growing 📈
 
-![Demo gif 1](github/relink-gif-1.gif)
-![Demo gif 2](github/relink-gif-2.gif)
+![View Stats](github/relink-gif-4.gif)
 
 #### License
 
