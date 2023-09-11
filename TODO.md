@@ -10,6 +10,7 @@
 ### TODO
 
 - [ ] Add user profile picture on the landing page next to the dashboard button
+- [ ] If new material started, show alert if user tries to leave page without saving
 
 ### In progress ...
 

@@ -64,3 +64,10 @@
   API: www.api.relingq.com
 
 - Instead of running my python script inside the node app with the python-shell package, I had to set up a separate web service on render for it. I build a flask app and served it with waitress. In the segmenter middleware on the server, I used axios to make a post request to the flask app with the body of the material and then passed the segmented text along to the route handler.
+
+## September 11th, 2023
+
+- added a profile icon to the landing page but made it hidden on mobile
+- changed month format to abbreviated with dayjs
+- updated readme with a logo png
+- fixed word list items overflowing by adding word-break: break-word to list\_\_item class

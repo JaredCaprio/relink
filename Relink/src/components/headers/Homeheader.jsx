@@ -40,7 +40,7 @@ export default function Homeheader({ headerTitle }) {
   };
 
   return (
-    <>
+    <div>
       <div className="home-header">
         <span className="home-header__curr-page">{headerTitle}</span>
         <div className="home-header__profile">
@@ -85,6 +85,6 @@ export default function Homeheader({ headerTitle }) {
           </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 }

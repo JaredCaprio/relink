@@ -53,7 +53,8 @@ export default function Header() {
           />
         ) : null} */}
       </ul>
-      <Homeheader />
+      {user && <Homeheader />}
+
       <div
         ref={ref}
         onClick={() => toggleNav()}

@@ -8,31 +8,19 @@
     &__item {
       &-def::before {
         content: "Definition";
-        color: clr.$transLight;
-        display: block;
-        padding: 0.25em 0;
-        font-weight: 600;
+        @include mx.list-item;
       }
       &-hsk::before {
         content: "HSK";
-        color: clr.$transLight;
-        display: block;
-        padding: 0.25em 0;
-        font-weight: 600;
+        @include mx.list-item;
       }
       &-added::before {
         content: "Added";
-        color: clr.$transLight;
-        display: block;
-        padding: 0.25em 0;
-        font-weight: 600;
+        @include mx.list-item;
       }
       &-type::before {
         content: "Type";
-        color: clr.$transLight;
-        display: block;
-        padding: 0.25em 0;
-        font-weight: 600;
+        @include mx.list-item;
       }
     }
   }
@@ -63,6 +51,7 @@
     color: black;
     border: 1px solid black;
     border-radius: sz.$borderRadiusHeavy;
+    word-break: break-word;
     &-def {
       max-width: 15rem;
     }

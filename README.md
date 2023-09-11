@@ -1,4 +1,4 @@
-# Welcome to Relink!
+![relink logo](github/relink-logo.png)
 
 Relink is an app that allows you to sign in with your Google account, import Chinese text into a reading list, and add words to a word list from the imported materials. Additionally, it lets you view statistics on how your vocabulary and reading list are growing.
 
@@ -14,6 +14,7 @@ Relink is an app that allows you to sign in with your Google account, import Chi
     Mongoose
     MongoDB
     D3
+    Python
 
 Chinese word segmentation performed using [Jieba](https://github.com/fxsjy/jieba)
 
@@ -46,7 +47,3 @@ Navigate to http://localhost:5173 in your web browser.
 ##### Look up words in the dictionary. View statistics on how your vocabulary and reading list are growing 📈
 
 ![View Stats](github/relink-gif-4.gif)
-
-#### License
-
-Relink is licensed under the MIT License. See the LICENSE file for more information.

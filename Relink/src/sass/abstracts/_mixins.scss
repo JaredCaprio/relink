@@ -1,3 +1,5 @@
+@use "../abstracts/colors" as clr;
+
 @mixin flex-center-col {
   display: flex;
   flex-direction: column;
@@ -10,4 +12,11 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+@mixin list-item {
+  color: clr.$transLight;
+  display: block;
+  padding: 0.25em 0;
+  font-weight: 600;
 }
