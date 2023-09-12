@@ -7,7 +7,6 @@ import Homeheader from "./Homeheader";
 
 export default function Header() {
   const user = useContext(userDataContext);
-  console.log(user);
   const [showNav, setShowNav] = useState(false);
   const ref = useRef();
   const toggleNav = () => {

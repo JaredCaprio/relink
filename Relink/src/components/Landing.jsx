@@ -1,8 +1,7 @@
 import Header from "./headers/Header";
+import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { useAuth } from "./auth/UserContext";
-import Tippy from "@tippyjs/react";
-import "tippy.js/dist/tippy.css";
 
 export default function Landing() {
   const user = useAuth();
@@ -57,6 +56,7 @@ export default function Landing() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

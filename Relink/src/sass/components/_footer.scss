@@ -1,0 +1,64 @@
+@use "../abstracts/mixins" as mx;
+@use "../abstracts/sizes" as sz;
+@use "../abstracts/colors" as clr;
+
+//mobile view
+
+.footer {
+  h4 {
+    font-size: calc(1rem + 0.25vw);
+    font-weight: lighter;
+    letter-spacing: 2.5px;
+  }
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  &__img-container {
+    position: relative;
+    &::after {
+      content: "Master Mandarin, One word at a time.";
+      position: absolute;
+      font-size: 0.75rem;
+      top: 130px;
+      left: 0;
+    }
+  }
+
+  &__copyright {
+    font-size: 0.75rem;
+    margin-bottom: 2em;
+  }
+  &__socials {
+    &-list {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
+
+//desktop view
+@media screen and (min-width: sz.$BPDesktop) {
+  .footer {
+    &__container {
+      min-width: 50%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+    }
+    &__socials {
+      &-list {
+        min-width: 10rem;
+        display: flex;
+      }
+    }
+  }
+}

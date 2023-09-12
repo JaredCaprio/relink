@@ -71,3 +71,8 @@
 - changed month format to abbreviated with dayjs
 - updated readme with a logo png
 - fixed word list items overflowing by adding word-break: break-word to list\_\_item class
+- adding footer to landing and home pages.
+
+## September 12th, 2023
+
+- finished adding footer
