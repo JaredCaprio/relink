@@ -1,15 +1,15 @@
 import React from "react";
+import relinkLogoLrg from "../assets/relink-logo.svg";
 
 export default function Footer() {
   const socialsLines = ["Hire me!", "Follow me!", "Socials"];
   const randomNum = Math.floor(Math.random() * socialsLines.length);
-  console.log(randomNum, "rand");
 
   return (
     <footer className="footer">
       <div className="footer__container">
         <p className="footer__img-container">
-          <img src="src/assets/relink-logo.svg" alt="" />
+          <img src={relinkLogoLrg} alt="" />
         </p>
 
         <div className="footer__socials">
