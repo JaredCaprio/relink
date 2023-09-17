@@ -11,17 +11,18 @@ export default function Dictionary() {
   const searchDictionary = (event) => {
     const query = event.target.value;
 
+    //Returns if only spaces are typed into search bar
     if (query.replace(/\s/g, "") < 1) {
       return;
     }
     fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/words/define/${query}`)
       .then((res) => res.json())
       .then((data) => {
-        setDictWords(data);
+        if (data.length >= 1) {
+          setDictWords(data);
+        }
       })
       .catch((error) => {
-        setDictWords([]);
-        setBlankMessage("No Words Found");
         console.log(error);
       });
   };

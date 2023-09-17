@@ -12,13 +12,20 @@ module.exports = {
     }
   },
   defineWord: (req, res) => {
+    const addSpaceToDef = (words) => {
+      words.forEach((word) => {
+        word.definitions = word.definitions.split(";").join("; ");
+      });
+    };
     try {
       if (/[\u4e00-\u9fa5]/g.test(req.params.word)) {
         cedict.searchByChinese(req.params.word, (words) => {
+          addSpaceToDef(words);
           res.json(words);
         });
       } else {
         cedict.searchByPinyin(req.params.word, (words) => {
+          addSpaceToDef(words);
           res.json(words);
         });
       }

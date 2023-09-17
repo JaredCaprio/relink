@@ -10,10 +10,6 @@
         content: "Definition";
         @include mx.list-item;
       }
-      &-hsk::before {
-        content: "HSK";
-        @include mx.list-item;
-      }
       &-added::before {
         content: "Added";
         @include mx.list-item;

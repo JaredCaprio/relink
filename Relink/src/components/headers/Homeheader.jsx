@@ -65,9 +65,11 @@ export default function Homeheader({ headerTitle }) {
         className={`mobile-home-header ${showMenu ? "" : "hidden"}`}
       >
         <ul className="mobile-home-header__ul">
-          <h2 className="mobile-home-header__li--inactive">
-            {userData?.displayName}
-          </h2>
+          <Link to="/home">
+            <h2 className="mobile-home-header__li--inactive">
+              {userData?.displayName}
+            </h2>
+          </Link>
           <hr />
           <Link to="/addmaterial" className="mobile-home-header__li">
             <i className="fa-solid fa-plus" title="Add Material"></i>

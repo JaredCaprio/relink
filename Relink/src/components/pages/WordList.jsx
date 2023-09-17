@@ -9,7 +9,7 @@ export default function WordList() {
   const wordList = useLoaderData();
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredWordList, setFilteredWordList] = useState(wordList);
-
+  console.log(wordList);
   const handleSearchQueryChange = (event) => {
     const query = event.target.value;
     setSearchQuery(query);
