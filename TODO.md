@@ -5,17 +5,18 @@
 - [ ] Make wordList load more words on scroll rather than loading all at once
 - [ ] Add chinese translation of site with the ability to switch between english and chinese from a dropdown menu
 - [ ] Look into finding a different dictionary api that includes hsk level and aligns more with the word segmenter's bias.
-- [ ] ability to add all words from any or all of the HSK levels to word list .
+- [ ] ability to add all words from any or all of the HSK levels to word list.
+- [ ] Add different ways of logging in like github, facebook, or passport local.
 
 ### TODO
 
-- [ ] Add user profile picture on the landing page next to the dashboard button
 - [ ] If new material started, show alert if user tries to leave page without saving
 
 ### In progress ...
 
 ### Done ✓
 
+- [x] Add user profile picture on the landing page next to the dashboard button
 - [x] Display a message on the statistics page if there are not materials saved but are words in the wordList
 - [x] Client getting known words list from wrong user
 - [x] fixed bug with submitting material without editing the body

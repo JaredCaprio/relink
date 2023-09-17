@@ -76,3 +76,8 @@
 ## September 12th, 2023
 
 - finished adding footer
+- Made name in homeHeader dropdown a link to the /home route
+
+## September 16th, 2023
+
+- Added space after semicolon in word definitions on the dictionary page by adding a helper function on the server.

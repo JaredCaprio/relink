@@ -19,7 +19,9 @@ export default function Word({
         <div className="list__item-pinyin ">{pinyin}</div>
       </div>
       <div className="list__item-def">{def}</div>
-      <div className="list__item-hsk">{dayjs(added).format("MMM D, YYYY")}</div>
+      <div className="list__item-added">
+        {dayjs(added).format("MMM D, YYYY")}
+      </div>
 
       <Ellipsismenu
         type="words"
@@ -35,5 +37,4 @@ Word.propTypes = {
   word: PropTypes.string,
   pinyin: PropTypes.string,
   def: PropTypes.string,
-  hsk: PropTypes.string,
 };
