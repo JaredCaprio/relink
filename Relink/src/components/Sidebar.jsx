@@ -28,10 +28,10 @@ export default function Sidebar() {
           <i className="fa-solid fa-book" title="Reading List"></i>
           <p className="sidebar__nav-list-item-title">Reading List</p>
         </NavLink>
-        <NavLink className="sidebar__nav-list-item" to="/statistics">
+        {/*    <NavLink className="sidebar__nav-list-item" to="/statistics">
           <i className="fa-solid fa-signal" title="Statistics"></i>
           <p className="sidebar__nav-list-item-title">Statistics</p>
-        </NavLink>
+        </NavLink> */}
         <NavLink className="sidebar__nav-list-item" to="/dictionary">
           <i className="fa-solid fa-spell-check" title="dictionary"></i>
           <p className="sidebar__nav-list-item-title">Dictionary</p>
