@@ -1,5 +1,5 @@
 const User = require("../models/User");
-const cedict = require("coupling-chinese-dict-2023");
+const cedict = require("coupling-dict-chinese-updated");
 
 module.exports = {
   //Returns all words from logged in user sorted by date, most recent first.
