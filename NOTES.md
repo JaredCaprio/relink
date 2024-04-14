@@ -81,3 +81,12 @@
 ## September 16th, 2023
 
 - Added space after semicolon in word definitions on the dictionary page by adding a helper function on the server.
+
+## April ~9th, 2024
+
+- Hosted server on Google app engine. Moved front end and jieba to Vercel.
+- Removed stats page from sidebar (adding rework it without using D3.js)
+
+## April 14th, 2024
+
+- Started working on adding sorting options on word list and reading list pages

@@ -14,6 +14,8 @@
 
 ### In progress ...
 
+- [ ] Add ability to sort work list and reading list by alphabetically by pinyin or material type
+
 ### Done ✓
 
 - [x] Add user profile picture on the landing page next to the dashboard button
