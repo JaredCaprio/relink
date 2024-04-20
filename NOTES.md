@@ -85,8 +85,57 @@
 ## April ~9th, 2024
 
 - Hosted server on Google app engine. Moved front end and jieba to Vercel.
-- Removed stats page from sidebar (adding rework it without using D3.js)
+- Removed stats page from sidebar (might rework it without using D3.js)
 
 ## April 14th, 2024
 
 - Started working on adding sorting options on word list and reading list pages
+- Moved default sorting of words from get words route by date (most recent first) to server side
+  CSS
+- made .list-col-label cursor pointer so It will be obvious that its clickable once I finished adding list sorting functionality
+
+# April 16th, 2024
+
+MISC
+
+- Fixed broken image in sidebar mobile screen size
+- created tasks.json to automatically open three terminal windows and run all the necessary commands
+- added additional cors origin to allowed origin in server.js file
+- Sidebar.jsx => changed import of RE.svg to re02.png because RE.svg wasn't loading in chrome
+
+  CSS
+
+- removed overflow: scroll from sidebar scss
+- adjusted offset of burger menu on landing page so it doesn't over lap with profile icon
+- made profile icon display on mobile screen sizes as well as desktop screen sizes
+- attempting to add sorting to word list and material list. Having difficulty with the css and alignment of the titles over the columns
+
+## April 17th, 2024
+
+CSS
+
+- fixed alignment issues with list titles
+  - created a aux css class to add and remove to list items when the list is being sort by the specific category
+
+Javascript
+
+- removed ellipse menu unused import from readList.jsx
+
+SORTING LISTS
+
+- abstracted a sortList function into util folder, it takes in listData and sortBy
+- changed list component to take nested props of titleId and titleOutput so I have something in the DOM that corresponds with the fields in the database which I can then use as the sortBy value for the sortList function
+- set the defaults for the title props to empty objects so react doesn't complain when I don't pass them in
+
+## April 20th, 2024
+
+CLIENT
+
+- Finished adding sorting for all lists in home layout. I used createdContext and useContext hooks to shares a sorting order state variable between all components in the home layout.
+
+- Refactored dashboard data loader function to use Promise.allSettled so word and material data can be fetched from existing endpoint instead from one creating specifically for the Dashboard.
+
+SERVER
+
+- Refactored words and materials endpoints to extract limit query param from URL and pass it the to database query for the dashboard loader function.
+- Refactored getWords route to actually limit the results of a request containing a limit query by splitting the wordList array before returning it from the controller

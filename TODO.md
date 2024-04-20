@@ -10,14 +10,15 @@
 
 ### TODO
 
+- [ ] Create trash bin for deleted materials and words
 - [ ] If new material started, show alert if user tries to leave page without saving
+- [ ] Confirmation dialog before deleting material or word
 
 ### In progress ...
 
-- [ ] Add ability to sort work list and reading list by alphabetically by pinyin or material type
-
 ### Done ✓
 
+- [x] Add ability to sort work list and reading list by alphabetically by title, pinyin, definition, material type, or date created.
 - [x] Add user profile picture on the landing page next to the dashboard button
 - [x] Display a message on the statistics page if there are not materials saved but are words in the wordList
 - [x] Client getting known words list from wrong user
