@@ -9,8 +9,9 @@ import Emptylist from "../ui/Emptylist";
 
 export default function Dashboard() {
   const dashboardData = useLoaderData();
-  const materialsDashboardData = dashboardData.materials;
-  const wordsDashboardData = dashboardData.words[0].wordList;
+  console.log(dashboardData);
+  const materialsDashboardData = dashboardData.materials.value;
+  const wordsDashboardData = dashboardData.words.value;
 
   return (
     <main className="main-content">
@@ -65,15 +66,29 @@ export default function Dashboard() {
 }
 
 export const DashboardLoader = async () => {
-  const materialDashboardData = await fetch(
-    `${import.meta.env.VITE_SERVER_DOMAIN}/dashboard`,
-    {
-      credentials: "include",
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-    }
-  ).catch((err) => console.log(err));
-  return materialDashboardData.json();
+  try {
+    const [words, materials] = await Promise.allSettled([
+      fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/words?limit=4`, {
+        credentials: "include",
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }).then((response) => response.json()),
+      fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/materials?limit=4`, {
+        credentials: "include",
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }).then((response) => response.json()),
+    ]);
+    return {
+      words,
+      materials,
+    };
+  } catch (error) {
+    console.error("Error fetching dashboard data:", error);
+    throw error; // Propagate the error for handling elsewhere
+  }
 };
