@@ -24,7 +24,7 @@ app.use(
     origin: [process.env.HOST_NAME, process.env.PREVIEW_HOST],
     methods: ["POST", "PUT", "GET", "DELETE", "PATCH"],
     credentials: true,
-  })
+  }),
 );
 
 //database connection
@@ -51,7 +51,7 @@ app.use(
       maxAge: null,
       domain: process.env.COOKIE_DOMAIN,
     },
-  })
+  }),
 );
 console.log(process.env.COOKIE_DOMAIN);
 //passport middleware

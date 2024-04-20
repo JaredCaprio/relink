@@ -4,9 +4,21 @@ const cedict = require("coupling-dict-chinese-updated");
 module.exports = {
   //Returns all words from logged in user sorted by date, most recent first.
   getWords: async (req, res) => {
+    const limit = req.query.limit || null;
+    console.log(limit);
     try {
-      const usersWordList = await User.find({ _id: req.user.id });
-      res.json(usersWordList[0].wordList);
+      const usersWordList = await User.find({
+        _id: req.user.id,
+      });
+      const sortedWordList = usersWordList[0].wordList.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+      );
+
+      if (limit != null) {
+        res.json(sortedWordList.slice(0, limit));
+      } else {
+        res.json(sortedWordList);
+      }
     } catch (err) {
       console.error(err);
     }
@@ -17,7 +29,9 @@ module.exports = {
         word.definitions = word.definitions.split(";").join("; ");
       });
     };
+
     try {
+      //Checking if query param passed in is a chinese character
       if (/[\u4e00-\u9fa5]/g.test(req.params.word)) {
         cedict.searchByChinese(req.params.word, (words) => {
           addSpaceToDef(words);
@@ -47,7 +61,7 @@ module.exports = {
           {
             $push: { wordList: req.body, $sort: { createdAt: -1 } },
           },
-          { new: true }
+          { new: true },
         );
         res.json(true);
       } else {
@@ -67,7 +81,7 @@ module.exports = {
       if (isWordAdded !== null) {
         const user = await User.updateOne(
           { _id: userId },
-          { $pull: { wordList: { _id: req.params.id } } }
+          { $pull: { wordList: { _id: req.params.id } } },
         );
         const updatedUser = await User.find({ _id: userId });
         res.json({ wordList: updatedUser[0].wordList, deleted: true });

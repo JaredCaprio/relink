@@ -3,8 +3,10 @@ const User = require("../models/User");
 
 module.exports = {
   getMaterials: async (req, res) => {
+    const limit = req.query.limit || null;
     try {
       const materials = await Materials.where("user")
+        .limit(limit)
         .equals(req.user._id)
         .sort({ createdAt: -1 });
       res.json(materials);
@@ -75,7 +77,6 @@ module.exports = {
     }
   },
   addMaterial: async (req, res) => {
-    console.log("from addMaterial controller", req.body);
     try {
       const findMaterial = await Materials.exists({
         title: req.body.title,
@@ -106,7 +107,7 @@ module.exports = {
       material = await Materials.findByIdAndUpdate(
         req.params.id,
         updatedMaterial,
-        { new: true, runValidators: true }
+        { new: true, runValidators: true },
       );
       res.json(true);
     } catch (error) {
