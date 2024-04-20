@@ -42,7 +42,7 @@
   position: absolute;
   z-index: 1;
   right: 1em;
-
+  text-align: center;
   background-color: clr.$bsLight;
   padding: 1em 2em;
   border-radius: sz.$borderRadiusMed;
@@ -87,12 +87,8 @@
 //Tablet
 @media screen and (max-width: sz.$BPtablet) {
   .mobile-home-header {
-    padding: 0.02em;
-  }
-  .home-header {
-    & img {
-      display: none;
-    }
+    padding: 0em;
+    white-space: nowrap;
   }
 }
 //Desktop View
