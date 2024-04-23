@@ -1,0 +1,14 @@
+@use "../abstracts/colors" as clr;
+@use "../abstracts/sizes" as sz;
+@use "../abstracts/mixins" as mx;
+
+.statistics {
+  &__main {
+    max-width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+}

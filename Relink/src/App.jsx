@@ -18,6 +18,7 @@ import EnsureAuth from "./components/auth/EnsureAuth";
 import EnsureGuest from "./components/auth/EnsureGuest";
 import Addmaterial from "./components/pages/Addmaterial";
 import Readinglist, { materialsLoader } from "./components/pages/ReadingList";
+import { chartDataLoader } from "./components/pages/Statistics";
 import Error404 from "./components/error/Error404";
 import Error500 from "./components/error/Error500";
 import Viewmaterial, {
@@ -80,14 +81,14 @@ const router = createBrowserRouter(
         <Route
           path="/statistics"
           element={<Statistics />}
-          loader={DashboardLoader}
+          loader={chartDataLoader}
         ></Route>
         <Route path="/dictionary" element={<Dictionary />} exact></Route>
         <Route path="/404" element={<Error404 />} exact></Route>
         <Route path="/500" element={<Error500 />} exact></Route>
       </Route>
-    </Route>
-  )
+    </Route>,
+  ),
 );
 
 function App() {
