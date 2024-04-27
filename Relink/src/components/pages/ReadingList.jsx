@@ -11,15 +11,20 @@ export default function Readinglist() {
   const materials = useLoaderData();
   const [sortedMaterials, setSortedMaterials] = useState(materials);
   const { sortOrder, setSortOrder } = useContext(SortingContext);
+  const [lastClickedTitle, setLastClickedTitle] = useState(2);
 
   //Using imported sortList function to sort the readingList
   const sortReadingList = (e) => {
     const targetID = e.target.id;
+    const listTitles = { first: "title", second: "createdAt", third: "type" };
+    if (targetID.length < 1) return;
     const sortedReadingList = sortList(
       sortedMaterials,
       targetID,
       sortOrder,
       setSortOrder,
+      setLastClickedTitle,
+      listTitles,
     );
     setSortedMaterials(sortedReadingList);
   };
@@ -33,6 +38,7 @@ export default function Readinglist() {
           title2={{ title2Id: "createdAt", title2Output: "Added" }}
           title3={{ title3Id: "type", title3Output: "Type" }}
           sortFunc={sortReadingList}
+          lastClickedTitle={lastClickedTitle}
         >
           {sortedMaterials &&
             sortedMaterials.map((material, i) => (

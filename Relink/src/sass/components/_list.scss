@@ -29,11 +29,14 @@
   text-align: center;
   margin: 0em;
   &__ul {
-    display: none;
+    display: flex;
     justify-content: space-between;
     padding: 0.1em 0.5em;
     margin: 0.5em;
     flex-basis: 200px;
+    &-col-label {
+      cursor: pointer;
+    }
     &-col-label::after {
       content: "\f0dc";
       font-family: "Font Awesome 6 Free";
@@ -79,15 +82,17 @@
 @media screen and (min-width: sz.$BPtablet) {
   .list {
     padding: 1em 1.5em;
-    margin: 0;
     margin-bottom: 3em;
-
     &__ul {
       display: flex;
       align-items: center;
-      &-col-label {
-        flex-basis: 200px;
-        cursor: pointer;
+      justify-content: space-between;
+
+      &-col-label:first-child {
+        margin-left: clamp(2.75rem, 50px, 10vw);
+      }
+      &-col-label:last-child {
+        margin-right: clamp(2.75rem, 50px, 10vw);
       }
     }
 

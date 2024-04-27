@@ -11,6 +11,7 @@ export default function WordList() {
   const wordList = useLoaderData();
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredWordList, setFilteredWordList] = useState(wordList);
+  const [lastClickedTitle, setLastClickedTitle] = useState(3);
   const { sortOrder, setSortOrder } = useContext(SortingContext);
 
   //Take the value from the input field, update the searchquery and filter the list
@@ -35,15 +36,20 @@ export default function WordList() {
   //Sort current filtered List
   const sortWordList = (e) => {
     const targetID = e.target.id;
+    const listTitles = {
+      first: "pinYin",
+      second: "definition",
+      third: "createdAt",
+    };
     if (targetID.length < 1) return;
-    console.log(targetID);
     const sortedList = sortList(
       filteredWordList,
       targetID,
       sortOrder,
       setSortOrder,
+      setLastClickedTitle,
+      listTitles,
     );
-
     setFilteredWordList(sortedList);
   };
 
@@ -61,6 +67,7 @@ export default function WordList() {
           title2={{ title2Id: "definition", title2Output: "Definition" }}
           title3={{ title3Id: "createdAt", title3Output: "Added" }}
           sortFunc={sortWordList}
+          lastClickedTitle={lastClickedTitle}
         >
           {filteredWordList.map((word, i) => (
             <Word

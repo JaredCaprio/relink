@@ -1,6 +1,14 @@
-export default function sortList(listData, sortBy, order, setOrderFunc) {
+export default function sortList(
+  listData,
+  sortBy,
+  order,
+  setOrderFunc,
+  setLastClickedTitle,
+  listTitles,
+) {
   let sortedList;
   let newOrder;
+  const { first, second, third } = listTitles;
 
   const sanitizedPinYin = (pinYin) => {
     return pinYin
@@ -27,6 +35,18 @@ export default function sortList(listData, sortBy, order, setOrderFunc) {
     ...prevOrder,
     [sortBy]: newOrder,
   }));
-  console.log(sortedList);
+
+  switch (sortBy) {
+    case first:
+      setLastClickedTitle(1);
+      break;
+    case second:
+      setLastClickedTitle(2);
+      break;
+    case third:
+      setLastClickedTitle(3);
+      break;
+  }
+
   return sortedList;
 }

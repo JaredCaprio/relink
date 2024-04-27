@@ -9,6 +9,8 @@ export default function HomeLayout() {
     pinYin: true,
     definition: true,
     createdAt: true,
+    type: true,
+    title: true,
   });
 
   return (
