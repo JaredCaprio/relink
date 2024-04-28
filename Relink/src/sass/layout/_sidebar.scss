@@ -8,7 +8,8 @@
   position: fixed;
   height: 100vh;
   width: 80px;
-  scrollbar-width: thin;
+  overflow-y: scroll;
+  scrollbar-width: none;
   &__nav-list {
     @include mx.flex-center-col;
     align-items: flex-start;
