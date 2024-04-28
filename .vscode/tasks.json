@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Client",
+      "command": "npm",
+      "type": "shell",
+      "args": ["run", "dev"],
+      "options": {
+        "cwd": "${workspaceFolder}/Relink"
+      }
+    },
+    {
+      "label": "Server",
+      "command": "nodemon",
+      "type": "shell",
+      "args": ["server"],
+      "options": {
+        "cwd": "${workspaceFolder}/server"
+      }
+    },
+    {
+      "label": "Python",
+      "command": "python",
+      "args": ["app.py"],
+      "options": {
+        "cwd": "${workspaceFolder}/python"
+      }
+    },
+    {
+      "label": "Dev",
+      "dependsOn": ["Client", "Server", "Python"]
+    }
+  ]
+}
