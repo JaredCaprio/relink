@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Homeheader from "../headers/Homeheader";
 
 export default function Addmaterial() {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState(
+    JSON.parse(sessionStorage.getItem("newMaterial")),
+  );
   const navigate = useNavigate();
+
+  useEffect(() => {
+    sessionStorage.setItem("newMaterial", JSON.stringify(formData));
+  }, [formData]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,6 +31,7 @@ export default function Addmaterial() {
         }
       })
       .catch((error) => console.error(error));
+    sessionStorage.removeItem("newMaterial");
   };
 
   const handleChange = (event) => {
@@ -43,6 +50,7 @@ export default function Addmaterial() {
                 onChange={handleChange}
                 type="text"
                 name="title"
+                value={formData?.title}
                 placeholder="Enter Title Here"
               />
             </div>
@@ -53,6 +61,7 @@ export default function Addmaterial() {
                 type="text"
                 name="type"
                 list="type"
+                value={formData?.type}
                 placeholder="Enter Type Here"
               />
               <datalist id="type">
@@ -68,6 +77,7 @@ export default function Addmaterial() {
               onChange={handleChange}
               name="body"
               id="body"
+              value={formData?.body}
               placeholder="Enter Text Here"
             ></textarea>
           </div>
