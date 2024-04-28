@@ -4,20 +4,27 @@
 
 - [ ] Make wordList load more words on scroll rather than loading all at once
 - [ ] Add chinese translation of site with the ability to switch between english and chinese from a dropdown menu
-- [ ] Look into finding a different dictionary api that includes hsk level and aligns more with the word segmenter's bias.
+- [ ] Look into finding a different dictionary api that includes hsk level and aligns more with the word segmenter's "bias"?.
 - [ ] ability to add all words from any or all of the HSK levels to word list.
 - [ ] Add different ways of logging in like github, facebook, or passport local.
 
 ### TODO
 
 - [ ] Create trash bin for deleted materials and words
-- [ ] If new material started, show alert if user tries to leave page without saving
 - [ ] Confirmation dialog before deleting material or word
+- [ ] Select multiple words or materials for deleting
 
 ### In progress ...
 
+### Need to Review / Refactor
+
 ### Done ✓
 
+- [x] ~~If new material started, show alert if user tries to leave page without saving~~ save unsaved material data in session storage and restore when returning to AddMaterial page
+- [x] make caret font awesome icon change when a list is being sorted
+- [x] need to refactor so the sortWordList() function isn't repeating code in both the wordList and readingList pages
+- [x] switch from using D3.js for statistics to using "react-chartjs-2"
+- [x] need to add fallback component when there isn't any data in database for user
 - [x] Add ability to sort work list and reading list by alphabetically by title, pinyin, definition, material type, or date created.
 - [x] Add user profile picture on the landing page next to the dashboard button
 - [x] Display a message on the statistics page if there are not materials saved but are words in the wordList

@@ -139,3 +139,23 @@ SERVER
 
 - Refactored words and materials endpoints to extract limit query param from URL and pass it the to database query for the dashboard loader function.
 - Refactored getWords route to actually limit the results of a request containing a limit query by splitting the wordList array before returning it from the controller
+
+## April 21st, 2024
+
+- Sorting title now change css class to display a different Font awesome Icon when actively being sorted
+  - Created a new state to track which was the last clicked title
+  - pass a number into the sort function in readingList and wordList and then from there passing it into the list component.
+
+## April 23rd, 2024
+
+- Implemented chart.js / react-chart.js-2 to bring back the statistic page
+  - added statistics.scss file just to center the main content of the statistics.jsx file.
+
+## April 25th, 2024
+
+- Abstracted logic out of sortReadingList and sortWordList that set the last clicked title into the sortList util
+- Stats page now displays the emptyList component when no chartData is passed into the pieChart ort barChart components
+
+# April 26th, 2024
+
+- AddMaterial page now saves materials that have not been submitted yet in session storage and restores them when returning to the add material page.
