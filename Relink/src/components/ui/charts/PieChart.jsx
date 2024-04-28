@@ -1,6 +1,8 @@
 import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
+import Emptylist from "../Emptylist";
+import List from "../../materials/List";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -52,5 +54,15 @@ export default function PieChart(chartData) {
     ],
   };
 
-  return <Pie options={options} data={data} />;
+  return (
+    <>
+      {value.length > 0 ? (
+        <Pie options={options} data={data} />
+      ) : (
+        <List>
+          <Emptylist type="materials" listType="Reading List" />
+        </List>
+      )}
+    </>
+  );
 }

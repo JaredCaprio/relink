@@ -10,7 +10,7 @@ export default function Statistics() {
   return (
     <main className="main-content">
       <Homeheader headerTitle="Statistics" />
-      <div class="statistics__main">
+      <div className="statistics__main">
         <BarChart chartData={loadedChartData} />
         <PieChart chartData={loadedChartData} />
       </div>

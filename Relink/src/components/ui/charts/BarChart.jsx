@@ -9,6 +9,8 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import List from "../../materials/List";
+import Emptylist from "../Emptylist";
 
 ChartJS.register(
   CategoryScale,
@@ -24,7 +26,7 @@ const options = {
   plugins: {
     title: {
       display: true,
-      text: "Links Created",
+      text: "Items Saved",
     },
   },
 };
@@ -48,5 +50,18 @@ export default function BarChart(chartData) {
       },
     ],
   };
-  return <Bar options={options} data={data} />;
+
+  console.log(wordsVal.length);
+
+  return (
+    <>
+      {wordsVal.length > 0 || materialsVal.length > 0 ? (
+        <Bar options={options} data={data} />
+      ) : (
+        <List>
+          <Emptylist type="words" listType="Word List" />
+        </List>
+      )}
+    </>
+  );
 }
