@@ -7,9 +7,6 @@ module.exports = {
         body: req.body.body,
       });
 
-      console.log(req.body.body, "input");
-      console.log(res.data, "output");
-
       req.body.body = res.data;
     } catch (error) {
       console.log(error);

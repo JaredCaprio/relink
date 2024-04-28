@@ -5,7 +5,7 @@ module.exports = {
   //Returns all words from logged in user sorted by date, most recent first.
   getWords: async (req, res) => {
     const limit = req.query.limit || null;
-    console.log(limit);
+
     try {
       const usersWordList = await User.find({
         _id: req.user.id,
