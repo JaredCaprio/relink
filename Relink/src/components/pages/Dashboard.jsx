@@ -66,22 +66,29 @@ export default function Dashboard() {
 }
 
 export const DashboardLoader = async () => {
+  const fetchLimits = { words: 4, materials: 4 };
   try {
     const [words, materials] = await Promise.allSettled([
-      fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/words?limit=4`, {
-        credentials: "include",
-        method: "GET",
-        headers: {
-          "Content-type": "application/json",
+      fetch(
+        `${import.meta.env.VITE_SERVER_DOMAIN}/words?limit=${fetchLimits.words}`,
+        {
+          credentials: "include",
+          method: "GET",
+          headers: {
+            "Content-type": "application/json",
+          },
         },
-      }).then((response) => response.json()),
-      fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/materials?limit=4`, {
-        credentials: "include",
-        method: "GET",
-        headers: {
-          "Content-type": "application/json",
+      ).then((response) => response.json()),
+      fetch(
+        `${import.meta.env.VITE_SERVER_DOMAIN}/materials?limit=${fetchLimits.materials}`,
+        {
+          credentials: "include",
+          method: "GET",
+          headers: {
+            "Content-type": "application/json",
+          },
         },
-      }).then((response) => response.json()),
+      ).then((response) => response.json()),
     ]);
     return {
       words,
