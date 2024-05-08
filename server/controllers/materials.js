@@ -5,15 +5,15 @@ module.exports = {
   getMaterials: async (req, res) => {
     const limit = req.query.limit || null;
     try {
-      const materials = await Materials.where("user")
-        .limit(limit)
-        .equals(req.user._id)
-        .sort({ createdAt: -1 });
-      res.json(materials);
-    } catch (error) {
-      console.error(error);
-      res.json(false);
-    }
+        const materials = await Materials.where("user")
+          .limit(limit)
+          .equals(req.user._id)
+          .sort({ createdAt: -1 });
+        res.json(materials);
+      } catch (error) {
+        console.error(error);
+        res.json(false);
+      }    
   },
   getMaterial: async (req, res) => {
     try {

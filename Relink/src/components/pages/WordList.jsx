@@ -92,7 +92,9 @@ export default function WordList() {
 export const wordListLoader = async () => {
   const words = await fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/words`, {
     credentials: "include",
-  });
+  }).catch((err) => {
+    console.log(err);
+  });;
 
   return words.json();
 };

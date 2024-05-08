@@ -4,12 +4,11 @@ import List from "../materials/List";
 import Homeheader from "../headers/Homeheader";
 import Word from "../materials/Word";
 import Material from "../materials/Material";
-import { useLoaderData, Link } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Emptylist from "../ui/Emptylist";
 
 export default function Dashboard() {
-  const dashboardData = useLoaderData();
-  console.log(dashboardData);
+  const dashboardData = useLoaderData();  
   const materialsDashboardData = dashboardData.materials.value;
   const wordsDashboardData = dashboardData.words.value;
 

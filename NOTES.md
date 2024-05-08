@@ -159,3 +159,7 @@ SERVER
 # April 26th, 2024
 
 - AddMaterial page now saves materials that have not been submitted yet in session storage and restores them when returning to the add material page.
+
+# May 8th, 2024
+
+- Redirect for some route wasn't working properly. In the try get for the getWords route, I had to add res.json(false) in the catch so the EnsureAuth component knew to redirect back to the login page.

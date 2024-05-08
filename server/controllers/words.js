@@ -4,24 +4,25 @@ const cedict = require("coupling-dict-chinese-updated");
 module.exports = {
   //Returns all words from logged in user sorted by date, most recent first.
   getWords: async (req, res) => {
-    const limit = req.query.limit || null;
+    const limit = req.query.limit || null;    
+      try {   
+        const usersWordList = await User.find({
+          _id: req.user.id,
+        });
+        const sortedWordList = usersWordList[0].wordList.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+        );
+  
+        if (limit != null) {
+          res.json(sortedWordList.slice(0, limit));
+        } else {
+          res.json(sortedWordList);
+        }
+      } catch (err) {
+        console.error(err, "error from words controller");
+        res.json(false)
+      }    
 
-    try {
-      const usersWordList = await User.find({
-        _id: req.user.id,
-      });
-      const sortedWordList = usersWordList[0].wordList.sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
-      );
-
-      if (limit != null) {
-        res.json(sortedWordList.slice(0, limit));
-      } else {
-        res.json(sortedWordList);
-      }
-    } catch (err) {
-      console.error(err);
-    }
   },
   defineWord: (req, res) => {
     const addSpaceToDef = (words) => {
